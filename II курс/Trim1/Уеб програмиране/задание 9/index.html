@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Задание 9</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="javascript.js"></script>
+</head>
+
+<body>
+<div class="centrirane">
+<center>
+<table id = "game" class = "gameBoard">
+	<tr>
+		<td class="kletka" id = "00" draggable="true" ondrop="drop(event)" ondragover="allowDrop(event)" ondragstart="drag(event)">1</td>
+		<td class="kletka" id = "10" draggable="true" ondrop="drop(event)" ondragover="allowDrop(event)" ondragstart="drag(event)">2</td> 
+		<td class="kletka" id = "20" draggable="true" ondrop="drop(event)" ondragover="allowDrop(event)" ondragstart="drag(event)">3</td>
+		<td class="kletka" id = "30" draggable="true" ondrop="drop(event)" ondragover="allowDrop(event)" ondragstart="drag(event)">4</td>
+	</tr>
+	<tr>
+		<td class="kletka" id = "01" draggable="true" ondrop="drop(event)" ondragover="allowDrop(event)" ondragstart="drag(event)">5</td>
+		<td class="kletka" id = "11" draggable="true" ondrop="drop(event)" ondragover="allowDrop(event)" ondragstart="drag(event)">6</td> 
+		<td class="kletka" id = "21" draggable="true" ondrop="drop(event)" ondragover="allowDrop(event)" ondragstart="drag(event)">7</td>
+		<td class="kletka" id = "31" draggable="true" ondrop="drop(event)" ondragover="allowDrop(event)" ondragstart="drag(event)">8</td>
+	</tr>
+	<tr>
+		<td class="kletka" id = "02" draggable="true" ondrop="drop(event)" ondragover="allowDrop(event)" ondragstart="drag(event)">9</td>
+		<td class="kletka" id = "12" draggable="true" ondrop="drop(event)" ondragover="allowDrop(event)" ondragstart="drag(event)">10</td> 
+		<td class="kletka" id = "22" draggable="true" ondrop="drop(event)" ondragover="allowDrop(event)" ondragstart="drag(event)">11</td>
+		<td class="kletka" id = "32" draggable="true" ondrop="drop(event)" ondragover="allowDrop(event)" ondragstart="drag(event)"></td>
+	</tr>
+	<tr>
+		<td class="kletka" id = "03" draggable="true" ondrop="drop(event)" ondragover="allowDrop(event)" ondragstart="drag(event)">13</td>
+		<td class="kletka" id = "13" draggable="true" ondrop="drop(event)" ondragover="allowDrop(event)" ondragstart="drag(event)">14</td> 
+		<td class="kletka" id = "23" draggable="true" ondrop="drop(event)" ondragover="allowDrop(event)" ondragstart="drag(event)">15</td>
+		<td class="kletka" id = "33" draggable="true" ondrop="drop(event)" ondragover="allowDrop(event)" ondragstart="drag(event)">12</td>
+	</tr>
+</table>
+<br>
+<b><a onclick="restartGame()" class="button1"><span>NEW GAME </span></a></b>
+</center>
+</div>
+
+<div class="topcorner">
+<center>
+Правилна подредба:<br>
+<img src="solve.png">
+</center>
+</div>
+
+</body>
+
+</html>

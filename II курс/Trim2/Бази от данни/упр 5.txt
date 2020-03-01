@@ -1,0 +1,119 @@
+/*Изведете номерата на служителите и броя поръчки, които 
+са правили*/ 
+SELECT EMPLOYEE_ID, COUNT(ORDER_ID) 
+FROM ORDERS 
+GROUP BY EMPLOYEE_ID 
+ORDER BY 1 
+
+/*Изведете номерата на продуктите и средната им цена 
+в поръчките*/ 
+
+SELECT PRODUCT_ID, AVG(UNIT_PRICE) 
+FROM ORDER_ITEMS 
+GROUP BY PRODUCT_ID 
+ORDER BY PRODUCT_ID 
+
+
+/*Изведете имената на държавите и имената на регионите, 
+в които се намират*/ 
+
+SELECT * 
+FROM REGIONS R JOIN COUNTRIES C 
+ON R.REGION_ID = C.REGION_ID 
+
+
+SELECT * 
+FROM REGIONS R, COUNTRIES C 
+WHERE R.REGION_ID = C.REGION_ID 
+
+
+SELECT * 
+FROM REGIONS R LEFT JOIN COUNTRIES C 
+ON R.REGION_ID = C.REGION_ID 
+
+SELECT * 
+FROM REGIONS R RIGHT JOIN COUNTRIES C 
+ON R.REGION_ID = C.REGION_ID 
+
+SELECT * 
+FROM REGIONS R FULL JOIN COUNTRIES C 
+ON R.REGION_ID = C.REGION_ID 
+
+/*Изведете имената на служителите и броя поръчки, които 
+са правили*/ 
+SELECT E.EMPLOYEE_ID, FNAME, LNAME, COUNT(*) 
+FROM EMPLOYEES E JOIN ORDERS O 
+ON E.EMPLOYEE_ID = O.EMPLOYEE_ID 
+GROUP BY E.EMPLOYEE_ID, FNAME, LNAME 
+
+/*Изведете имената на служителите и броя поръчки, които 
+са правили, нека в резултата участват и служителите, 
+които не са правили поръчки до момента*/ 
+SELECT FNAME, LNAME, COUNT(ORDER_ID) 
+FROM EMPLOYEES E LEFT JOIN ORDERS O 
+ON E.EMPLOYEE_ID = O.EMPLOYEE_ID 
+GROUP BY E.EMPLOYEE_ID, FNAME, LNAME 
+
+/*Изведете имената на клиентите, номерата на техните 
+поръчки и стойността на поръчките*/ 
+
+SELECT FNAME, LNAME, O.ORDER_ID, SUM(UNIT_PRICE*QUANTITY) 
+FROM CUSTOMERS C JOIN ORDERS O 
+ON C.CUSTOMER_ID = O.CUSTOMER_ID 
+JOIN ORDER_ITEMS OI 
+ON O.ORDER_ID = OI.ORDER_ID 
+GROUP BY FNAME, LNAME, O.ORDER_ID 
+
+/*Изведете имената на държавите, в които има клиенти 
+и отдели на фирмата*/ 
+
+SELECT DISTINCT CO.NAME 
+FROM CUSTOMERS C, DEPARTMENTS D, COUNTRIES CO 
+WHERE C.COUNTRY_ID = CO.COUNTRY_ID 
+AND D.COUNTRY_ID = CO.COUNTRY_ID 
+
+/*Изведете имената на клиентите, номерата на техните 
+поръчки и стойността на поръчките, нека в резултата 
+участват само поръчките, които имат стойност 
+> 50000*/ 
+SELECT FNAME, LNAME, O.ORDER_ID, 
+SUM(UNIT_PRICE*QUANTITY) AS TOTAL 
+FROM CUSTOMERS C JOIN ORDERS O 
+ON C.CUSTOMER_ID = O.CUSTOMER_ID 
+JOIN ORDER_ITEMS OI 
+ON O.ORDER_ID = OI.ORDER_ID 
+GROUP BY FNAME, LNAME, O.ORDER_ID 
+HAVING SUM(UNIT_PRICE*QUANTITY) > 50000 
+ORDER BY TOTAL DESC 
+
+/*Изведете имената на отделите и броя служители в тях 
+нека в резултата участват само отдели, в които работят 
+повече от 20 служителя*/ 
+
+SELECT NAME, COUNT(EMPLOYEE_ID) 
+FROM EMPLOYEES E JOIN DEPARTMENTS D 
+ON D.DEPARTMENT_ID = E.DEPARTMENT_ID 
+GROUP BY NAME 
+HAVING COUNT(EMPLOYEE_ID) > 20 
+ORDER BY 1 
+
+/*Изведете ид-тата на държавите, в които има клиенти 
+или отдели на фирмата*/ 
+SELECT COUNTRY_ID 
+FROM CUSTOMERS 
+UNION 
+SELECT COUNTRY_ID 
+FROM DEPARTMENTS 
+ORDER BY 1 
+
+/*Изведете имената на държавите, в които има клиенти 
+или отдели на фирмата*/ 
+
+SELECT NAME 
+FROM CUSTOMERS C, COUNTRIES CO 
+WHERE C.COUNTRY_ID = CO.COUNTRY_ID 
+UNION 
+SELECT CO.NAME 
+FROM DEPARTMENTS D, COUNTRIES CO 
+WHERE D.COUNTRY_ID = CO.COUNTRY_ID 
+ORDER BY 1 

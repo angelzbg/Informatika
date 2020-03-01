@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="mysheet.css">
+  <link rel="stylesheet" href="galeriq.css">
+<title>Книжарница BookWorm</title>
+</head>
+<body>
+<div id="header" class="header">
+<a href="mainStranica.html"><svg height="130" width="500">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:rgb(118,254,0);stop-opacity:1" />
+      <stop offset="100%" style="stop-color:rgb(0,254,144);stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <ellipse cx="100" cy="70" rx="85" ry="55" fill="url(#grad1)" />
+  <text fill="#e6005c" font-size="25" font-family="Verdana" x="35" y="80">BookWorm</text>
+</svg></a>
+
+<div class="reclama"><a href="#" ><img src="reclama.jpeg"   width=300px height=75px ></img></a></div>
+
+</div>
+
+<div class="topMenu">
+<center>
+<ul id="ul1">
+<li id="li1"><a id="a1" href="Produkti.html">Продукти</a><li>
+<li id="li1"><a id="a1" href="Poruchki.html">Поръчки</a><li>
+<li id="li1"><a id="a1" href="Mneniq.html">Мнения</a><li>
+<li id="li1"><a id="a1" href="mainStranica.html">Новини</a><li>
+<li id="li1"><a id="a1" href="Gallery.html">Галерия</a><li>
+</ul>
+</center>
+</div>
+
+<div id="menu" class="menu">
+<br>
+<ul id="ul2">
+<li id="li2"><a id="a2" href="ZaFirmata.html"><b>За фирмата</b></a></li>
+<li id="li2"><a id="a2" href="Partners.html"> Партньори<a> </li>
+<li id="li2"><a id="a2" href="RazvitieChart.html"> Развитие <a></li>
+</ul>
+&nbsp;<br><b><font style="padding-left:4px;">За собственика</font></b><br>
+<ul id="ul2">
+<li id="li2"><a id="a2" href="ZaSobstvenika.html"> CV <a></li>
+<li id="li2"><a id="a2" href="Movie.html"> Филм <a></li>
+<li id="li2"><a id="a2" href="Music.html"> Музика <a></li>
+</ul>
+</div>
+
+<div id="content" class="content">
+
+<div class="gallery">
+  <a target="_blank" href="TKM.jpg">
+    <img src="TKM.jpg" width="300px" height="200px"></a>
+  <div class="desc">Да убиеш присмехулник</div>
+</div>
+
+
+
+
+<div class="gallery">
+<canvas id="myCanvas" width="100" height="20" style="border:1px solid #d3d3d3; float:right";>
+Your browser does not support the HTML5 canvas tag.</canvas>
+
+<script>
+var c = document.getElementById("myCanvas");
+var ctx = c.getContext("2d");
+
+ctx.fillStyle = "yellow";
+ctx.fillRect(0, 0, 250, 100)
+ctx.fillStyle='red';
+ctx.font='15px Arial';
+ctx.fillText('ПРОМОЦИЯ!', 5,16);
+</script>
+
+
+  <a target="_blank" href="VNP.jpg">
+    <img src="VNP.jpg" width="300px" height="200px"></a>
+  <div class="desc">Властелинът на пръстените</div>
+</div>
+</div>
+
+
+<div id="footer" class="footer">
+Copyright © BookWorm</div>
+</div>
+</body>
+</html>

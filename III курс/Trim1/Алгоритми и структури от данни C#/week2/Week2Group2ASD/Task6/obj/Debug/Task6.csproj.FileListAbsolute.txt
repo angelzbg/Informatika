@@ -1,0 +1,6 @@
+C:\Users\nvj\source\repos\Week2Group2ASD\Task6\bin\Debug\Task6.exe.config
+C:\Users\nvj\source\repos\Week2Group2ASD\Task6\bin\Debug\Task6.exe
+C:\Users\nvj\source\repos\Week2Group2ASD\Task6\bin\Debug\Task6.pdb
+C:\Users\nvj\source\repos\Week2Group2ASD\Task6\obj\Debug\Task6.csproj.CoreCompileInputs.cache
+C:\Users\nvj\source\repos\Week2Group2ASD\Task6\obj\Debug\Task6.exe
+C:\Users\nvj\source\repos\Week2Group2ASD\Task6\obj\Debug\Task6.pdb

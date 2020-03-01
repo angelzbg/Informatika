@@ -1,0 +1,4 @@
+http://zamunda.net/banan?id=406391&hit=1&t=soft
+
+и гледаш в тоя сайт разни работи като например какви функции има в библиотеката string или cstring:
+http://www.cplusplus.com/

@@ -1,0 +1,6 @@
+C:\Users\Nikolay\Documents\Visual Studio 2015\Projects\Lectures\2016-2017\OOP\Day 6\Shapes\bin\Debug\Shapes.exe.config
+C:\Users\Nikolay\Documents\Visual Studio 2015\Projects\Lectures\2016-2017\OOP\Day 6\Shapes\bin\Debug\Shapes.exe
+C:\Users\Nikolay\Documents\Visual Studio 2015\Projects\Lectures\2016-2017\OOP\Day 6\Shapes\bin\Debug\Shapes.pdb
+C:\Users\Nikolay\Documents\Visual Studio 2015\Projects\Lectures\2016-2017\OOP\Day 6\Shapes\obj\Debug\Shapes.exe
+C:\Users\Nikolay\Documents\Visual Studio 2015\Projects\Lectures\2016-2017\OOP\Day 6\Shapes\obj\Debug\Shapes.pdb
+C:\Users\Nikolay\Documents\Visual Studio 2015\Projects\Lectures\2016-2017\OOP\Day 6\Shapes\obj\Debug\Shapes.csprojResolveAssemblyReference.cache

@@ -1,0 +1,6 @@
+C:\Users\Nikolay\Documents\Visual Studio 2015\Projects\Lectures\2016-2017\OOP\Day 6\ArenaGame\obj\Debug\ArenaGame.csprojResolveAssemblyReference.cache
+C:\Users\Nikolay\Documents\Visual Studio 2015\Projects\Lectures\2016-2017\OOP\Day 6\ArenaGame\bin\Debug\ArenaGame.exe.config
+C:\Users\Nikolay\Documents\Visual Studio 2015\Projects\Lectures\2016-2017\OOP\Day 6\ArenaGame\bin\Debug\ArenaGame.exe
+C:\Users\Nikolay\Documents\Visual Studio 2015\Projects\Lectures\2016-2017\OOP\Day 6\ArenaGame\bin\Debug\ArenaGame.pdb
+C:\Users\Nikolay\Documents\Visual Studio 2015\Projects\Lectures\2016-2017\OOP\Day 6\ArenaGame\obj\Debug\ArenaGame.exe
+C:\Users\Nikolay\Documents\Visual Studio 2015\Projects\Lectures\2016-2017\OOP\Day 6\ArenaGame\obj\Debug\ArenaGame.pdb

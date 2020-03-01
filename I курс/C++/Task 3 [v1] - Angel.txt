@@ -1,0 +1,39 @@
+/*Potrebitelq vuvejda 3 chisla
+Izhoda sa sortirani vuzhodqshto tezi tri chisla*/
+
+#include<iostream>
+using namespace std;
+
+int main()
+{
+	int a[3];
+
+	for (int i = 0; i < 3; i++)
+	{
+		cout << "Chislo " << i + 1 << " = ";
+		cin >> a[i];
+	}
+
+	for (short j = 0 ; j < 3; j++) // izlishno ama karai da ima
+	{
+		for (short i = 0; i < 2; i++)
+		{
+			if (a[i]>a[i + 1])
+			{
+				int temp = a[i];
+				a[i] = a[i + 1];
+				a[i + 1] = temp;
+			}
+		}
+	}
+
+	cout << "Vuv vuzhodqsht red: ";
+	for (int i = 0; i < 3; i++)
+	{
+		cout << a[i] << " ";
+	} cout << endl;
+
+
+	system("PAUSE");
+	return 0;
+}

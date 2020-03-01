@@ -1,0 +1,24 @@
+//то т'ва май стана същото като на преподавателя :D:D
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	system("chcp 1251 >> nul");
+
+	short n;
+	do
+	{
+		cout << "Въведете стойност за n (1<=n<=15):"; cin >> n;
+	} while (n<1 || n>15);
+
+	long long w = 102;
+	for (short k = 1; k <= n; k++)
+	{
+		w = w - ((k*(k + 3)) / 2) + 17;
+		cout << "w(" << k << ") = " << w << endl;
+	}
+
+	system("pause");
+	return 0;
+}

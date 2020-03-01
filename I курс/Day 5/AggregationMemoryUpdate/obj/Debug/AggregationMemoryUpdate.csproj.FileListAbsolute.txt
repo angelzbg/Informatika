@@ -1,0 +1,6 @@
+C:\Users\Nikolay\Documents\Visual Studio 2015\Projects\Lectures\2016-2017\OOP\Day 5\AggregationMemoryUpdate\bin\Debug\AggregationMemoryUpdate.exe.config
+C:\Users\Nikolay\Documents\Visual Studio 2015\Projects\Lectures\2016-2017\OOP\Day 5\AggregationMemoryUpdate\bin\Debug\AggregationMemoryUpdate.exe
+C:\Users\Nikolay\Documents\Visual Studio 2015\Projects\Lectures\2016-2017\OOP\Day 5\AggregationMemoryUpdate\bin\Debug\AggregationMemoryUpdate.pdb
+C:\Users\Nikolay\Documents\Visual Studio 2015\Projects\Lectures\2016-2017\OOP\Day 5\AggregationMemoryUpdate\obj\Debug\AggregationMemoryUpdate.csprojResolveAssemblyReference.cache
+C:\Users\Nikolay\Documents\Visual Studio 2015\Projects\Lectures\2016-2017\OOP\Day 5\AggregationMemoryUpdate\obj\Debug\AggregationMemoryUpdate.exe
+C:\Users\Nikolay\Documents\Visual Studio 2015\Projects\Lectures\2016-2017\OOP\Day 5\AggregationMemoryUpdate\obj\Debug\AggregationMemoryUpdate.pdb

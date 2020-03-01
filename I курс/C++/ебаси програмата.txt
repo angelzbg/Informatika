@@ -1,0 +1,135 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+const int N = 10;
+int counter = 0;
+
+struct SVideoCard{
+	double Price;
+	string Model;
+	double RamSize;
+	string RamType;
+};
+
+struct SRam{
+	double Price;
+	string Model;
+	double Size;
+	string Type;
+};
+
+struct SComputer{
+	double Price;
+	SVideoCard VideoCard;
+	SRam RAM;
+	string MotherboardModel;
+	double HardSize;
+}Computer[N];
+
+int Menu(){
+	cout << "1.New computer\n2.Show computers\n3.Show max RAM of Video\n4.Show cheapest RAM\n5.Exit" << endl;
+	int choice; cout << "Choice: "; cin >> choice;
+	return choice;
+}
+
+void CreateComputer()
+{
+	if (counter >= N) cout << "FULL!!!!!!!!!!!!!!!!!!" << endl;
+	else
+	{
+		cout << "You are entering a new computer:" << endl;
+		cout << "Enter Price: "; cin >> Computer[counter].Price;
+		cout << "Enter Hard Drive Size: "; cin >> Computer[counter].HardSize;
+		cout << "Enter Motherboard Model: "; cin >> Computer[counter].MotherboardModel; cin.ignore();
+
+		cout << "\tYou are entering Video card for the new computer:" << endl;
+		cout << "\tEnter Price: "; cin >> Computer[counter].VideoCard.Price;
+		cout << "\tEnter Model: "; cin >> Computer[counter].VideoCard.Model; cin.ignore();
+		cout << "\tEnter RAM Size: "; cin >> Computer[counter].VideoCard.RamSize;
+		cout << "\tEnter RAM Type: "; cin >> Computer[counter].VideoCard.RamType; cin.ignore();
+
+		cout << "\t\tYou are entering RAM Memory for the new computer:" << endl;
+		cout << "\t\tEnter Price: "; cin >> Computer[counter].RAM.Price;
+		cout << "\t\tEnter Model: "; cin >> Computer[counter].RAM.Model; cin.ignore();
+		cout << "\t\tEnter RAM Size: "; cin >> Computer[counter].RAM.Size;
+		cout << "\t\tEnter RAM Type: "; cin >> Computer[counter].RAM.Type; cin.ignore();
+
+		counter++;
+	}
+}
+
+void ShowComputers()
+{
+	cout << "#-----List of all computers-----#" << endl;
+	for (int i = 0; i < counter; i++)
+	{
+		cout << Computer[i].MotherboardModel << " - Price: " << Computer[i].Price << "$" << endl;
+	}
+	cout << "#-------------------------------#" << endl;
+}
+
+void  ShowVideoMaxRam()
+{
+	cout << "<------------------------------->" << endl;
+	SComputer MaxVideo = Computer[0];
+	for (int i = 0; i < counter; i++)
+	{
+		if (MaxVideo.VideoCard.RamSize < Computer[i].VideoCard.RamSize)
+		{
+			MaxVideo = Computer[i];
+		}
+	}
+	cout << "Largest RAM Size: " << MaxVideo.VideoCard.RamSize << endl;
+	cout << "Video card with that size of RAM: ";
+	for (int i = 0; i < counter; i++)
+	{
+		if (Computer[i].VideoCard.RamSize == MaxVideo.VideoCard.RamSize)
+			cout << Computer[i].VideoCard.Model << "  ";
+	}
+	cout << endl;
+	cout << "<------------------------------->" << endl;
+}
+
+void ShowLowestPriceRam()
+{
+	cout << "*-------------------------------*" << endl;
+	SComputer MinPrice = Computer[0];
+	for (int i = 0; i < counter; i++)
+	{
+		if (MinPrice.RAM.Price > Computer[i].RAM.Price)
+		{
+			MinPrice = Computer[i];
+		}
+	}
+	cout << "Lowest RAM Price: " << MinPrice.RAM.Price << "$" << endl;
+	cout << "Models with that price: ";
+	for (int i = 0; i < counter; i++)
+	{
+		if (Computer[i].RAM.Price == MinPrice.RAM.Price)
+			cout << Computer[i].RAM.Model << "  ";
+	}
+	cout << endl;
+	cout << "*-------------------------------*" << endl;
+}
+
+int main()
+{
+	bool check = true;
+	while (check = true)
+	{
+		int choice = Menu();
+		switch (choice)
+		{
+		case 1: CreateComputer(); break;
+		case 2: ShowComputers(); break;
+		case 3: ShowVideoMaxRam(); break;
+		case 4: ShowLowestPriceRam(); break;
+		case 5: check = false; break;
+		default: cout << "Wrong choice!" << endl; break;
+		}
+	}
+
+	system("pause");
+	return 0;
+}

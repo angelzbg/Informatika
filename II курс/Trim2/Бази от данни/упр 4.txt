@@ -1,0 +1,81 @@
+/*Изведете цялата информация за служителите*/ 
+SELECT * 
+FROM EMPLOYEES 
+/*Изведете цялата информация за служителите, 
+които работят в отдел 80*/ 
+SELECT * 
+FROM EMPLOYEES 
+WHERE DEPARTMENT_ID = 80 
+/*Изведете имената, заплатите и номерата на отделите, 
+в които работят всички служители*/ 
+SELECT FNAME, LNAME, SALARY, DEPARTMENT_ID 
+FROM EMPLOYEES 
+/*Изведете имената и цените на всички продукти, които 
+имат цена >=500 и <= 1000*/ 
+SELECT NAME, PRICE 
+FROM PRODUCTS 
+--WHERE PRICE >= 500 AND PRICE <= 1000 
+WHERE PRICE BETWEEN 500 AND 1000 
+/*Изведете имената и цените на всички продукти, които 
+имат цена >=500 и <= 1000, подредете резултата по цена 
+низходящо*/ 
+SELECT NAME, PRICE 
+FROM PRODUCTS 
+--WHERE PRICE >= 500 AND PRICE <= 1000 
+WHERE PRICE BETWEEN 500 AND 1000 
+ORDER BY 2 DESC 
+
+/*Изведете наименованията на длъжностите с минимална 
+заплата > 5000 и максимална заплата > 8000, подредете 
+резултата по минимална и максимална заплата възходящо*/ 
+SELECT JOB_TITLE, MIN_SALARY, MAX_SALARY 
+FROM JOBS 
+WHERE MIN_SALARY > 5000 AND MAX_SALARY > 8000 
+ORDER BY 2,3 
+/*Изведете броя служители във фирмата*/ 
+SELECT COUNT(EMPLOYEE_ID) 
+FROM EMPLOYEES 
+SELECT COUNT(*) 
+FROM EMPLOYEES 
+
+/*Изведете броя клиенти, които са правили поръчки*/ 
+SELECT COUNT(DISTINCT CUSTOMER_ID) 
+FROM ORDERS 
+
+/*Изведете стойността на поръчка 2355*/ 
+SELECT SUM(UNIT_PRICE*QUANTITY) AS TOTAL 
+FROM ORDER_ITEMS 
+WHERE ORDER_ID = 2355 
+/*Изведете средната месечна заплата в отдел 80*/ 
+SELECT AVG(SALARY/12) 
+FROM EMPLOYEES 
+WHERE DEPARTMENT_ID = 80 
+/*Изведете най-ниската и най-високата заплата в 
+отдел 50*/ 
+SELECT MIN(SALARY) AS MIN_SALARY, MAX(SALARY) AS MAX_SALARY 
+FROM EMPLOYEES 
+WHERE DEPARTMENT_ID = 50 
+/*Изведете средната месечна заплата и номера на отдела, 
+в която се дава тази заплата*/ 
+SELECT DEPARTMENT_ID, AVG(SALARY/12) 
+FROM EMPLOYEES 
+GROUP BY DEPARTMENT_ID 
+
+/*Изведете номерата на продуктите и общото количество, 
+в което са били поръчвани*/ 
+SELECT PRODUCT_ID, SUM(QUANTITY) AS QTY 
+FROM ORDER_ITEMS 
+GROUP BY PRODUCT_ID 
+ORDER BY 1 
+/*Изведете броя държави в регион 3*/ 
+SELECT COUNT(NAME) AS COUNT 
+FROM COUNTRIES 
+WHERE REGION_ID = 3 
+/*Изведете броя отдели, в които има назначени служители*/ 
+SELECT COUNT(DISTINCT DEPARTMENT_ID) AS COUNT 
+FROM EMPLOYEES 
+/*Изведете ид-то на длъжността и датата, на която 
+е бил назначен първия служител в тази длъжност*/ 
+SELECT JOB_ID, MIN(HIRE_DATE) AS MIN_DATE 
+FROM EMPLOYEES 
+GROUP BY JOB_ID 

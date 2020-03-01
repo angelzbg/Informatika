@@ -1,0 +1,9 @@
+C:\Users\Nikolay\Documents\Visual Studio 2015\Projects\Lectures\2016-2017\OOP\Day 6\IntroPolymorphism\bin\Debug\IntroPolymorphism.exe.config
+C:\Users\Nikolay\Documents\Visual Studio 2015\Projects\Lectures\2016-2017\OOP\Day 6\IntroPolymorphism\bin\Debug\IntroPolymorphism.exe
+C:\Users\Nikolay\Documents\Visual Studio 2015\Projects\Lectures\2016-2017\OOP\Day 6\IntroPolymorphism\bin\Debug\IntroPolymorphism.pdb
+C:\Users\Nikolay\Documents\Visual Studio 2015\Projects\Lectures\2016-2017\OOP\Day 6\IntroPolymorphism\obj\Debug\IntroPolymorphism.csprojResolveAssemblyReference.cache
+C:\Users\Nikolay\Documents\Visual Studio 2015\Projects\Lectures\2016-2017\OOP\Day 6\IntroPolymorphism\obj\Debug\IntroPolymorphism.exe
+C:\Users\Nikolay\Documents\Visual Studio 2015\Projects\Lectures\2016-2017\OOP\Day 6\IntroPolymorphism\obj\Debug\IntroPolymorphism.pdb
+D:\Informatika\Day 6\IntroPolymorphism\bin\Debug\IntroPolymorphism.exe.config
+D:\Informatika\Day 6\IntroPolymorphism\obj\Debug\IntroPolymorphism.exe
+D:\Informatika\Day 6\IntroPolymorphism\obj\Debug\IntroPolymorphism.pdb

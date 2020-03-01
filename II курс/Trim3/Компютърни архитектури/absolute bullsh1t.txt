@@ -1,0 +1,418 @@
+#include <iostream>
+using namespace std;
+
+void WriteArray(int a[], int len) {
+	cout << "Elements:\t";
+	for (int i = 0; i < len; i++) cout << a[i] << "\t";
+	cout << endl;
+	cout << "Indexes:\t";
+	for (int i = 0; i < len; i++) cout << i << "\t";
+	cout << endl; cout << endl;
+}
+
+int getMaxAsm(int a[], int len)
+{
+	__asm
+	{
+		push esi //за масива
+		push ecx //за дължината
+
+		mov esi, a
+		mov ecx, len
+		sub ecx, 1 //изваждаме 1 от дължината, защото искаме да пропуснем един лууп
+		mov eax, [esi] //защото първия елемент ще го сложим в eax (функцията връща винаги eax)
+
+		Find_Max:
+			add esi, 4 //отиваме в следващия елемент на масива
+			cmp [esi], eax //сравняваме текущия елемент с максималния намерен до момента
+			jl Find_Max_Skip //ако текущия е по-малък, прескачаме долния ред и отиваме на Find_Max_Skip
+			mov eax, [esi] //ако е по-голям или равен, слагаме в eax елемента
+			Find_Max_Skip : loop Find_Max //луупва масива толкова пъти, колкото е стойността в ecx (след всеки лууп намаля ecx с 1)
+
+		pop ecx
+		pop esi
+	}
+}
+
+int getMinAsm(int a[], int len)
+{
+	__asm
+	{
+			push esi
+			push ecx
+
+			mov esi, a
+			mov ecx, len
+			sub ecx, 1
+			mov eax, [esi]
+
+			Find_Min:
+				add esi, 4
+				cmp [esi], eax
+				jg Find_Min_Skip //ако сегашния е по-голям, прескачаме долния ред и отиваме на Find_Max_Skip
+				mov eax, [esi]
+				Find_Min_Skip: loop Find_Min
+
+			pop ecx
+			pop esi
+	}
+}
+
+int getMaxMinusMinAsm(int a[], int len)
+{
+	__asm
+	{
+		push esi
+		push ecx
+		push ebx //min
+
+		mov esi, a
+		mov ecx, len
+		sub ecx, 1
+		mov eax, [esi] //max
+		mov ebx, [esi]
+
+		Find_Max_Min:
+			add esi, 4
+			cmp [esi], eax
+			jl Find_Skip1
+			mov eax, [esi]
+			Find_Skip1:
+			cmp [esi], eax
+			jg Find_Skip2
+			mov ebx, [esi]
+			Find_Skip2: loop Find_Max_Min
+			sub eax, ebx
+
+		pop ebx
+		pop ecx
+		pop esi
+	}
+}
+
+int getMaxIndexAsm(int a[], int len)
+{
+	__asm
+	{
+		push esi
+		push ecx
+		push ebx
+		push edi
+
+		mov esi, a
+		mov ecx, len
+		sub ecx, 1
+		mov eax, 0
+		mov edi, 0
+		mov ebx, [esi]
+
+		Find_Index_Max:
+			add esi, 4
+			add edi, 1
+			cmp [esi], ebx
+			jl Skip1 //jg за минималния
+			mov ebx, [esi]
+			mov eax, edi
+			Skip1 : loop Find_Index_Max
+
+		pop edi
+		pop ebx
+		pop esi
+		pop ecx
+	}
+}
+
+int sumAllEvens(int a[], int len)
+{
+	__asm
+	{
+		push esi //масив
+		push ecx //дължина
+		push edx //temp
+
+		mov esi, a
+		mov ecx, len
+		xor eax, eax //нулираме сумата
+
+		sub esi, 4 //отиваме пред масива
+
+		L1:
+			add esi, 4 //отиваме в следващия елемент
+			mov edx, [esi] //слагаме в temp стойността на текущия елемент
+			and edx, 1
+			cmp edx, 0
+			jg Skip //ако edx е по-голямо от 0, значи числото е нечетно и прескачаме долните команди (jl за четно)
+			add eax, [esi] //ако пък е =0 т.е. е четно, добавяме го към сумата
+			Skip: loop L1
+
+		pop edx
+		pop ecx
+		pop esi
+	}
+}
+
+int Diff_SumAllEvens_Minus_SumAllOdds(int a[], int len)
+{
+	__asm
+	{
+		push esi //масив
+		push ecx //дължина
+		xor eax, eax //сума на четните
+		push edi
+		xor edi, edi //сума на нечетните
+		push ebx //temp
+
+		mov esi, a
+		mov ecx, len
+
+		sub esi, 4
+
+		L1:
+			add esi, 4
+			mov ebx, [esi]
+			and ebx, 1
+			cmp ebx, 0
+			jg Skip1
+			add eax, [esi]
+			Skip1:
+			cmp ebx, 0
+			je Skip2
+			add edi, [esi]
+			Skip2: loop L1
+
+			sub eax, edi
+
+		pop ebx
+		pop edi
+		pop ecx
+		pop esi
+	}
+}
+
+int Sum_Ostatuk_Ot_Delene_S_5(int a[], int len)
+{
+	__asm
+	{
+		push esi
+		push ecx
+		push ebx
+		xor eax, eax
+
+		mov esi, a
+		mov ecx, len
+
+		sub esi, 4
+
+	L1:
+		add esi, 4
+		mov ebx, [esi]
+		and ebx, 4
+		add eax, ebx
+		loop L1
+
+		pop ebx
+		pop ecx
+		pop esi
+	}
+}
+
+int countDivided4Not8Asm(int a[], int len)
+{
+	__asm
+	{
+		push esi
+		push ecx
+		push ebx
+		xor eax, eax
+
+		mov esi, a
+		mov ecx, len
+		sub esi, 4
+
+	L1:
+		add esi, 4
+		mov ebx, [esi]
+		and ebx, 3
+		cmp ebx, 0
+		jg Skip1
+		mov ebx, [esi]
+		and ebx, 7
+		cmp ebx, 0
+		je Skip1
+		add eax, 1
+		Skip1: loop L1
+
+		pop ebx
+		pop ecx
+		pop esi
+	}
+}
+
+int countDivided3(int a[], int len)
+{
+	__asm
+	{
+			push esi
+			push ecx
+			push ebx
+			xor eax, eax
+
+			mov esi, a
+			mov ecx, len
+			sub esi, 4
+
+		L1:
+			add esi, 4
+			mov ebx, [esi]
+			and ebx, 3
+			cmp ebx, 0
+			jg Skip1
+			add eax, 1
+		Skip1: loop L1
+
+			   pop ebx
+			   pop ecx
+			   pop esi
+	}
+}
+
+void Dobavqne_5_kum_Delimi_na_3_Izvajdane_4_ot_Delimi_na_7(int a[], int len)
+{
+	__asm
+	{
+		push esi
+		push ecx
+		push ebx
+
+			mov esi, a
+			mov ecx, len
+
+			sub esi, 4
+
+		L1:
+			add esi, 4
+			mov ebx, [esi]
+			and ebx, 2
+			cmp ebx, 0
+			jg Skip1
+			add [esi], 5
+			jmp Skip2
+		Skip1:
+			mov ebx, [esi]
+			and ebx, 6
+			cmp ebx, 0
+			jg Skip2
+			sub [esi], 4
+		Skip2 : loop L1
+
+		pop ebx
+		pop ecx
+		pop esi
+	}
+}
+
+int countEven(int a[], int len)
+{
+	__asm
+	{
+		push esi
+			push ecx
+			push ebx
+			xor eax, eax
+
+			mov esi, a
+			mov ecx, len
+			sub esi, 4
+
+		L1:
+		add esi, 4
+			mov ebx, [esi]
+			and ebx, 1
+			cmp ebx, 0
+			jg Skip1
+			add eax, 1
+		Skip1: loop L1
+
+			   pop ebx
+			   pop ecx
+			   pop esi
+	}
+}
+
+int countOdd(int a[], int len)
+{
+	__asm
+	{
+		push esi
+			push ecx
+			push ebx
+			xor eax, eax
+
+			mov esi, a
+			mov ecx, len
+			sub esi, 4
+
+		L1:
+		add esi, 4
+			mov ebx, [esi]
+			and ebx, 1
+			cmp ebx, 0
+			je Skip1
+			add eax, 1
+		Skip1: loop L1
+
+			   pop ebx
+			   pop ecx
+			   pop esi
+	}
+}
+
+void main()
+{
+	system("chcp 1251");
+
+	int a[] = { 1, 5, 2, 4, -6, 2, 0, 12, -9, 9, -9, -4, -8 };
+	const int len = sizeof(a) / sizeof(a[0]);
+
+	WriteArray(a, len);
+
+	int result = getMaxAsm(a, len);
+	cout << "Max element of the array is: " << result << "\n\n";
+
+	result = getMinAsm(a, len);
+	cout << "Min element of the array is: " << result << "\n\n";
+
+	result = getMaxMinusMinAsm(a, len);
+	cout << "Max-Min element of the array = " << result << "\n\n";
+
+	result = getMaxIndexAsm(a, len);
+	cout << "Index of the Max element of the array = " << result << "\n\n";
+
+	result = sumAllEvens(a, len);
+	cout << "Sum of all even elements of the array = " << result << "\n\n";
+
+	result = Diff_SumAllEvens_Minus_SumAllOdds(a, len);
+	cout << "Sum of all evens - Sum of all odds = " << result << "\n\n";
+
+	result = Sum_Ostatuk_Ot_Delene_S_5(a, len);
+	cout << "Сумата на остатъците от деленето с 5 на елементите = " << result << "\n\n";
+
+	result = countDivided4Not8Asm(a, len);
+	cout << "Брой елементи, делящи се на 4, но не и на 8: " << result << "\n\n";
+
+	result = countDivided3(a, len);
+	cout << "Брой елементи, делящи се на 3: " << result << "\n\n";
+
+
+	result = countEven(a, len);
+	cout << "Четни: " << result << "\n\n";
+
+
+	result = countOdd(a, len);
+	cout << "Нечетни: " << result << "\n\n";
+
+	Dobavqne_5_kum_Delimi_na_3_Izvajdane_4_ot_Delimi_na_7(a, len);
+	WriteArray(a, len);
+
+	system("PAUSE");
+}

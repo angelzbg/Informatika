@@ -1,0 +1,12 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	system("chcp 1251 >> nul"); //ако искаш кирилица де
+
+	//тяло
+
+	system("pause");
+	return 0;
+}

@@ -1,0 +1,120 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<title>Задание 7</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="javascript.js"></script>
+</head>
+
+<body bgcolor="#E6E6FA">
+	<div style="color:white; background-color: rgba(0,0,0, 0.5); border-radius:5px; padding-left:25px;padding-top:15px; text-shadow:1px 1px black;">
+	
+	<div>
+		<p style="font-size:20px;">
+		Работа по задачи 1 и 2: Ангел Златанов<br>
+		Работа по задачи 3 и 4: Ангел Георгиев<br>
+		Работа по задачи 5 и 6: Анелия Ангелова
+		</p>
+	</div>
+	
+	<div>	
+		<p><b>1.</b> Образувайте правилно изречение като плъзнете думите в горното каре:</p>
+
+		<div id='div1' ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+		<br><br><br><br>
+		<div id='divText'><font id='drag1' draggable='true' ondragstart='drag(event)'>два </font>
+		<font id='drag2' draggable='true' ondragstart='drag(event)'>Имам </font>
+		<font id='drag3' draggable='true' ondragstart='drag(event)'>лева </font></div>
+		<br><br><br>
+		<input type='button' onclick='changeText()' value='Провери'/>
+		<p>Отговорът ти е <b id='otgovor'></b></p> 
+		<br>
+	</div>
+
+	<div>	
+		<p><b>2.</b> Плъзнете думите на правилното място в текста:</p>
+		<div id='divText2'><font id='drag4' draggable='true' ondragstart='drag(event)'>елементи</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<font id='drag5' draggable='true' ondragstart='drag(event)'>тагове</font></div><br><br><br>
+		<div id='divQ2'>
+		Описанието на документа става чрез специални HTML <div id='divWord1' ondrop="drop(event)" ondragover="allowDrop(event)"></div><br>
+		или маркери, които се състоят от етикети или <div id='divWord2' ondrop="drop(event)" ondragover="allowDrop(event)"></div><br>
+		и ъглови скоби (като например елемента font).<br>
+		</div>
+		<br>
+		<input type='button' onclick='changeText2()' value='Провери'/>
+		<p>Отговорът ти е <b id='otgovor2'></b></p> <br>
+	</div>
+	
+	<div>	
+		<p><b>3.</b> Изберете изображенията с храна на тях:</p>
+		<div class = "row"> 
+			<div class="column">
+				<img id = "bananas" src="Images/bananas.png" onclick="imageClick('bananas')">
+				<img id = "books" src="Images/books.png" onclick="imageClick('books')">
+				<img id = "burger" src="Images/burger.png" onclick="imageClick('burger')">
+			</div>
+			<div class="column">
+				<img id = "flower" src="Images/flower.png" onclick="imageClick('flower')">
+				<img id = "monitor" src="Images/monitor.png" onclick="imageClick('monitor')">
+				<img id = "pizza" src="Images/pizza.png" onclick="imageClick('pizza')">
+
+			</div>
+			<div class="column">
+				<img id = "rock" src="Images/rock.png" onclick="imageClick('rock')">
+				<img id = "spaghetti" src="Images/spaghetti.png" onclick="imageClick('spaghetti')">
+				<img id = "tree" src="Images/tree.png" onclick="imageClick('tree')">
+			</div>
+		</div>
+		<input type='button' onclick='imageCheck()' value='Провери'/>
+		<p>Отговорът ти е <b id='otgovor3'></b></p> <br>
+	</div>
+		
+	<div>	
+		<p><b>4.</b> Напишете с цифри правилният отговор на задачата:</p>
+		<b>(25-5).2-5.4 = ?</b><br>
+		<input id='numb' type='number'>
+		<input type='button' onclick='changeText4()' value='Провери'/>
+		<p>Отговорът ти е <b id='otgovor4'></b></p> <br>
+	</div>
+		
+	<div>
+		<p><b>5.</b> Отбележете само един верен отговор:</p>
+		Кога е създадена първата българска държава?<br>
+		<form action="">
+		  <input type="radio" name="otg5" value="1185"> 1185<br>
+		  <input type="radio" name="otg5" value="681" id='qko'> 681<br>
+		  <input type="radio" name="otg5" value="1878"> 1878
+		</form>
+		<input type='button' onclick='changeText5()' value='Провери'/>
+		<p>Отговорът ти е <b id='otgovor5'></b></p> <br>
+	</div>
+	
+	<div>
+		<p><b>6.</b> Отбележете верните отговори:</p>
+		Кои твърдения са верни за класовете, които не са абстрактни? (Java)<br>
+		<b>
+		<input type="checkbox" id="box1"> Класът не е задължен да предоставя имплементация на всички декларации на методи.<br>
+		<input type="checkbox" id="box2"> Един клас може да имплементира само един интерфейс.<br>
+		<input type="checkbox" id="box3"> Всеки клас наследява класа Object дори да не е указано, че наследява нещо.<br>
+		<input type="checkbox" id="box4"> Един клас може да наследява много други класове.<br>
+		<input type="checkbox" id="box5"> Един клас може да наследява само един друг клас.<br>
+		<input type="checkbox" id="box6"> Един клас може да имплементира множество интерфейси<br>
+		</b>
+		
+		<input type='button' onclick='changeText6()' value='Провери'/>
+		<p>Отговорът ти е <b id='otgovor6'></b></p> <br>
+	</div>
+	
+	<div style="padding-bottom:5px;">
+		<p style="font-size:20px;">
+		Работата е разпределена по равно по всеобщо съгласие.<br>
+		Разбираме защо изисквате работа в екип чрез системата ви за коментари и групово редактиране<br>
+		- в днешно време всеки сериозен проект се възползва от някакъв вид version control и познанията<br>
+		как да борави с него са ключови за един програмист. Но нашата група вече е свикнала да работи със source tree<br>
+		и го използвахме и за този проект с цел комфорт. Надяваме се да не е проблем че качваме директно готовия проект.<br>
+		</p>
+	</div>
+	
+	</div>
+</body>
+</html>

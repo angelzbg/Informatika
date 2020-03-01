@@ -1,0 +1,166 @@
+/*Изведете броят поръчки, които са направени през 2008 година*/ 
+SELECT YEAR(ORDER_DATE) 
+FROM ORDERS 
+
+SELECT COUNT(ORDER_ID) 
+FROM ORDERS 
+WHERE YEAR(ORDER_DATE) = 2008 
+
+SELECT COUNT(ORDER_ID) 
+FROM ORDERS 
+WHERE ORDER_DATE BETWEEN '2008-01-01 00:00:00' 
+AND '2008-12-31 23:59:59' 
+
+SELECT FNAME, UPPER(FNAME), LOWER(FNAME) 
+FROM EMPLOYEES 
+
+DECLARE @myvar varchar(10);  
+SET @myvar = 'sdrawkcaB';  
+SELECT REVERSE(@myvar) AS Reversed ;  
+GO 
+
+SELECT REVERSE('sdrawkcaB') AS Reversed ;  
+GO 
+
+SELECT REPLACE('abcdefghicde','cde','xxx');  
+GO  
+
+SELECT x = SUBSTRING('abcdef', 2, 3); 
+
+/*Изведете имената на служителитe, чиито фамилии започват с 
+буквата 'G'*/ 
+SELECT FNAME, LNAME 
+FROM EMPLOYEES 
+WHERE SUBSTRING(LNAME, 1, 1) = 'G' 
+
+SELECT FNAME, LNAME 
+FROM EMPLOYEES 
+WHERE LNAME LIKE 'G%' 
+
+
+SELECT ABS(-1.0), ABS(0.0), ABS(1.0);  
+
+DECLARE @input1 float;  
+DECLARE @input2 float;  
+SET @input1= 2;  
+SET @input2 = 2.5;  
+SELECT POWER(@input1, 3) AS Result1, 
+POWER(@input2, 3) AS Result2; 
+
+DECLARE @var float = 10;  
+SELECT 'The LOG of the variable is: ' + 
+CONVERT(varchar, LOG(@var));  
+GO  
+
+SELECT ROUND(123.9994, 3), ROUND(123.9995, 3);  
+GO  
+
+DECLARE @myvalue float;  
+SET @myvalue = 1.00;  
+WHILE @myvalue <= 10.00  
+   BEGIN  
+      SELECT SQRT(@myvalue);  
+      SET @myvalue = @myvalue + 1  
+   END;  
+GO  
+
+/*Създайте изглед, който съдържа имената, месечните заплати 
+и номерата на отделите на всички служители*/ 
+CREATE VIEW EMP_VIEW 
+AS 
+SELECT FNAME, LNAME, SALARY/12 AS SALARY, DEPARTMENT_ID 
+FROM EMPLOYEES 
+
+SELECT * 
+FROM EMP_VIEW 
+
+UPDATE EMP_VIEW 
+SET DEPARTMENT_ID = 50 
+WHERE FNAME = 'LUIS' AND LNAME = 'POPP' 
+
+SELECT * 
+FROM EMP_VIEW 
+WHERE FNAME = 'LUIS' AND LNAME = 'POPP' 
+
+SELECT * 
+FROM EMPLOYEES 
+WHERE FNAME = 'LUIS' AND LNAME = 'POPP' 
+
+UPDATE EMP_VIEW 
+SET SALARY*=1.1 
+WHERE FNAME = 'LUIS' AND LNAME = 'POPP' 
+
+DELETE FROM EMP_VIEW 
+WHERE FNAME = 'STEVEN' AND LNAME = 'KING' 
+
+DELETE FROM EMPLOYEES 
+WHERE FNAME = 'STEVEN' AND LNAME = 'KING' 
+
+/*Променете създаденият изглед, като добавим условие да 
+включва само служители от 50 отдел и добавим годишната заплата*/ 
+
+ALTER VIEW EMP_VIEW 
+AS 
+SELECT FNAME, LNAME, SALARY, DEPARTMENT_ID 
+FROM EMPLOYEES 
+WHERE DEPARTMENT_ID = 50 
+
+UPDATE EMP_VIEW 
+SET SALARY*=1.1 
+WHERE FNAME = 'LUIS' AND LNAME = 'POPP' 
+
+SELECT * 
+FROM EMP_VIEW 
+
+UPDATE EMP_VIEW 
+SET DEPARTMENT_ID = 30 
+WHERE FNAME = 'LUIS' AND LNAME = 'POPP' 
+
+SELECT * 
+FROM EMP_VIEW 
+
+
+UPDATE EMP_VIEW 
+SET DEPARTMENT_ID = 60 
+WHERE FNAME = 'LUIS' AND LNAME = 'POPP' 
+
+ALTER VIEW EMP_VIEW 
+AS 
+SELECT FNAME, LNAME, SALARY, DEPARTMENT_ID 
+FROM EMPLOYEES 
+WHERE DEPARTMENT_ID = 50 
+WITH CHECK OPTION 
+
+UPDATE EMP_VIEW 
+SET DEPARTMENT_ID = 60 
+WHERE FNAME = 'ADAM' AND LNAME = 'FRIPP' 
+
+/*Създайте изглед, който съдържа имената на продуктите и 
+общото количество, в което са били поръчвани, нека 
+в резултата участват само продуктите, които са поръчвани 
+в общо количество > 500 броя*/ 
+
+
+CREATE VIEW PROD_QUANTITY 
+AS 
+SELECT NAME, SUM(QUANTITY) AS SUM_QUANTITY 
+FROM ORDER_ITEMS OI JOIN PRODUCTS P 
+ON P.PRODUCT_ID = OI.PRODUCT_ID 
+GROUP BY P.PRODUCT_ID, NAME 
+HAVING SUM(QUANTITY) > 500 
+
+SELECT * 
+FROM PROD_QUANTITY 
+
+/*Създайте изглед, който съдържа имената и държавите на 
+10-те клиентите, които са правили най-голям брой поръчки*/ 
+
+CREATE VIEW CUST_ORDERS 
+AS 
+SELECT TOP 10 WITH TIES FNAME, LNAME, NAME 
+FROM CUSTOMERS C JOIN COUNTRIES CO 
+ON C.COUNTRY_ID = CO.COUNTRY_ID 
+JOIN ORDERS O 
+ON O.CUSTOMER_ID = C.CUSTOMER_ID 
+GROUP BY FNAME, LNAME, NAME 
+ORDER BY COUNT(ORDER_ID) DESC   

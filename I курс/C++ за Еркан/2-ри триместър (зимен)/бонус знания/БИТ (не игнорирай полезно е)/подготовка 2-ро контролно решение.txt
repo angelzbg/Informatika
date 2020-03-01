@@ -1,0 +1,95 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+const int N = 30;
+int counter = 0;
+
+struct SCar
+{
+	string Model;
+	string Number;
+	double PricePerDay;
+	int Days;
+}Cars[N];
+
+int Menu()
+{
+	cout << "1.Enter new car for rent"
+		<< "\n2.Show all rented cars"
+		<< "\n3.Show the whole sum for the rented cars"
+		<< "\n4.Sort by rented days\n5.Exit" << endl;
+	int choice; cout << "Choose option: "; cin >> choice;
+	return choice;
+}
+
+void EnterCar()
+{
+	cout << "Enter car model: "; cin >> Cars[counter].Model;
+	cout << "Enter car plate number: "; cin >> Cars[counter].Number;
+	cout << "Enter price per day: "; cin >> Cars[counter].PricePerDay;
+	cout << "Enter days for rent: "; cin >> Cars[counter].Days;
+	counter++;
+}
+
+void ShowCars()
+{
+	cout << "-----Showing list of all rented cars-----" << endl;
+	for (int i = 0; i < counter; i++)
+	{
+		cout << "#" << i + 1 << " Car model: " << Cars[i].Model << endl;
+		cout << "#" << i + 1 << " Car plate number: " << Cars[i].Number << endl;
+		cout << "#" << i + 1 << " Price per day: " << Cars[i].PricePerDay << "$" << endl;
+		cout << "#" << i + 1 << " Days for rent: " << Cars[i].Days << endl;
+	}
+	cout << "-----------------------------------------" << endl;
+}
+
+void ShowSumALL()
+{
+	float sum = 0;
+	for (int i = 0; i < counter; i++)
+	{
+		sum += ( Cars[i].PricePerDay * (Cars[i].Days * 1.00) );
+	}
+	cout << "Sum of the price for all the cars for rent: " << sum << "$" << endl;
+}
+
+void SortCarsByDays()
+{
+	for (int j = 0; j < counter; j++)
+	{
+		for (int i = 0; i < counter - 1; i++)
+		{
+			SCar tempCar;
+			if (Cars[i].Days > Cars[i + 1].Days) // > за да отидат във низходящ ред
+			{					//спрямо дните (т.е. от най-малко дни към най-много)
+				tempCar = Cars[i];
+				Cars[i] = Cars[i + 1];
+				Cars[i + 1] = tempCar;
+			}
+		}
+	}
+	cout << "!!!Sorted!!!" << endl;
+}
+
+int main()
+{
+	bool check = true;
+	while (check)
+	{
+		int choice = Menu();
+		switch (choice)
+		{
+		case 1: EnterCar(); break;
+		case 2: ShowCars(); break;
+		case 3: ShowSumALL(); break;
+		case 4: SortCarsByDays(); break;
+		case 5: check = false; break;
+		default: cout << "Wrong choice!" << endl; break;
+		}
+	}
+
+	system("pause");
+	return 0;
+}

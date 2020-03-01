@@ -1,0 +1,51 @@
+/*
+Някъв идиот продава плодове в продължение на 20 дни. Всеки ден продава определено количество (кг) моркови.
+Да се напише програма, която въвежда количеството продадени моркови за всеки един ден, намира количеството на
+продадените моркови за последните 10 дни, извежда минималното количество продадени моркови и дните, в които е
+продадено това количество, извежда общото количество продадени моркови за всички дни.
+*/
+#include <iostream>
+using namespace std;
+int main()
+{
+	const short n = 20;
+	float a[n];
+	for (short i = 0; i < n; i++)
+	{
+		cout << "Vuvedete kilogramite prodadeni morkovi za den " << i + 1 << " : ";
+		cin >> a[i];
+	}
+
+	float sum1 = 0;
+	for (short i = 10; i < n; i++)
+	{
+		sum1 += a[i];
+	}
+	cout << "Kolichestvo prodadeni morkovi za poslednite 10 dni: " << sum1 << " kg.";
+
+	float min = a[0];
+	for (short i = 1; i < n; i++) // и i=0; i<n; i++ няма да е грешно, но така или иначе
+	{ 				// за min съм взел първия елемент, реших да го прескоча при обхождането
+		if (a[i] < min)
+		{
+			min = a[i];
+		}
+	}
+	cout << "\nMinimalno kolichestvo: " << min << " kg"<<endl;
+ 	
+ 	cout << "I e v dnite: ";
+	float sum2 = 0;
+	for (short i = 0; i < n; i++)
+	{
+		sum2 += a[i]; // така или иначе ще обхождам целия масив, направо сумирам още в тоя цикъл, няма смисъл да го пиша пак
+		if (a[i] == min) // и тук пак си проверявам всеки елемент дали е равен на min
+		{
+			cout << i + 1 << " "; // и си го принтвам ако е
+		}
+	}
+
+	cout << "\nObshto kolichestvo pprodadeni morkovi: " << sum2 << endl;
+
+	system("pause");
+	return 0;
+}

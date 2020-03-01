@@ -1,0 +1,41 @@
+LINK - initial appearance – default = Blue
+VLINK - visited link – default = Purple
+ALINK - active link being clicked – default = Red
+link="red" - текстът в <a> таговете става червен
+vlnk="green" - текстът в <a> таговете става зелен след като са били посетени
+alink="yellow" - текстъв в <a> тага става жълт в момента на натискане
+vlink = Visited link
+alink = Active link
+сега да видим как се използват в css:
+a:active {} - alink
+a:visited {} - vlink
+a:hover {}
+a:link {} - link
+
+a:link { background-color: yellow; }
+The :link selector style links to pages you have not visited yet!
+
+<body vlink="red"> - цвета на буквите на вече посетените страници в бодито става червен, а иначе ако не са посетени са по дефолт.
+
+
+
+
+Тагове,които не изискват затваряне:
+<area> <base> <br> <col> <command> <embed> <hr> <img> <input> <keygen> <link> <meta> <param> <source> <track> <wbr>
+
+<area> - used for the area inside of an image map
+<base> - the base URL for all relative URLs in a document. There can be no more than 1 of these per document and it must be in the <head> of the page
+<br> - this is line break, often used in text content to create a single line break instead of a paragraph. This should not be used to create visual separation on a page by stacking up many <br> tags since that is a visual need and therefore the domain of CSS
+<col> - specifies column properties for each column within a <colgroup> element
+<command> - specifies a command that a user can invoke
+<embed> - used with external applications and interactive content for integration
+<hr> - a horizontal rule, which is a straight line on a page. In many cases, CSS borders are used to create separator lines instead of this HTML element
+<img> - one of the workhorse elements of HTML, this is the image tag. It is used to add graphic images to a webpage.
+<input> - a form element that is used to capture information from visitors. There are a number of valid input types, from the common "text" input that has been used in forms for years, to some new input types that are part of HTML5
+<keygen> -  this is used to dictate a key-pair generator field that is used for forms
+<link> - not to be confused with the "hyperlink" or anchor (<a>) tag, this link is to set linage between a document and an external resource. You would use it to link to an external CSS file, for example
+<meta> - meta tags are "information about content". They are found in the <head> of a document and used to convey page information to the browser. There are many possible meta tags that you can use on a webpage
+<param> - used to define parameters for plugins 
+<source> - this tag allows you to specify alternative file paths for media on your page, including videos or images or audio files
+<track> - this tag sets a track to be used with a media file, a video or audio, which are often added with the <video> or <audio> tags
+<wbr> - this stands for Word Break Opportunity. It specifies where in a text it would be acceptable to add a line-break.

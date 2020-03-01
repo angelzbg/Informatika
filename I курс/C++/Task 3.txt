@@ -1,0 +1,48 @@
+// ConsoleApplication4.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include<iostream>
+
+using namespace std;
+
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+  //Potrebitelq vuvejda 3 chisla
+  //Izhoda sa sortirani vuzhodqshto tezi tri chisla
+
+  int arr[3];
+
+  //Vuvejdame stoinosti v masiva
+  for (int i = 0; i < 3; i++)
+  {
+    cin >> arr[i];
+  }
+
+  //Sortirame
+  for (int i = 0; i < 3; i++)
+  {
+    for (int j = 0; j < 3 - 1; j++)
+    {
+      if (arr[j] >
+        arr[j + 1])
+      {
+        int tmp = arr[j];
+        arr[j] = arr[j + 1];
+        arr[j + 1] = tmp;
+      }
+    }
+  }
+
+  //Izvejdame stoinosti ot masiva
+  for (int i = 0; i < 3; i++)
+  {
+    cout << arr[i] << " ";
+  }
+
+
+  system("PAUSE");
+  return 0;
+}
+

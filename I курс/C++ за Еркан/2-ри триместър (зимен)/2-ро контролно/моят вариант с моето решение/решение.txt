@@ -1,0 +1,70 @@
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+const char Vidove[][10] // първата скоба е броя на елементите (не го задаваме в момента), втората е колко макс символа да има всеки елемент (брой+1 за нулевия)
+{ "стъкло", //0
+"пластмаса", //1
+"метал", //2
+"картон" //3
+};
+const short lenVidove = sizeof(Vidove) / sizeof(Vidove[0]); // вече знаем колко елемента има масива = lenVidove
+
+const short N = 6;
+const short namesymbols = 40;
+struct SGoods
+{
+	char Name[namesymbols + 1];
+	double Amount;
+	int Type;
+}Goods[N]; //създадохме Goods със 6 елемента от тип структура SGoods, която има и трите полета Name, Amount и Type
+//може и така:
+//SGoods Ime[6]; SGoods Ime[N];
+
+SGoods FindMaxAmountGood(SGoods *Produkti, short len)
+{
+	SGoods max = Produkti[0];
+	for (short i = 0; i < len; i++)
+	{
+		if (max.Amount < Produkti[i].Amount) max = Produkti[i];
+	}
+	return max;
+}
+
+int main()
+{
+	system("chcp 1251 >> nul");
+
+	cout << "Въведете данните за " << N << " продукта:\n";
+	for (short i = 0; i < N; i++)
+	{
+		cout << "Продукт " << i + 1 << ":" << endl;
+
+		cout << "\tназвание: "; cin.getline(Goods[i].Name, namesymbols + 1);
+		//цикъл do-while се изпълнява поне веднъж
+		do
+		{
+			cout << "\tколичество: "; cin >> Goods[i].Amount;
+			if (Goods[i].Amount <= 0) cout << "Количеството трябва да е положително!" << endl;
+		} while (Goods[i].Amount <= 0); // do ще се изпълнява отново ако стойността е по-малка или равна на 0, т.е. докато не е положителна
+
+		do
+		{
+			cout << "\tвид опаковка (0-стъкло; 1-пластмаса; 2-метал; 3-картон): "; cin >> Goods[i].Type;
+		} while (Goods[i].Type<0 || Goods[i].Type>3); //аналогично от горния do-while
+
+		cin.ignore(); //т'ва е щот е цикъл и ведната след първото изпълнение следва второто и тогава въвеждаме низ (името) и ще стане ташакторба, тая функция игнорира нулевия байт и нещата си работят без проблем
+	}
+
+	SGoods MaxAmountGood = FindMaxAmountGood(Goods, N);
+	cout << "\n\n";
+	cout << "Продукт с най-голямо количество:" << endl;
+	cout << "\tпродукт: " << MaxAmountGood.Name << "; количество: " << MaxAmountGood.Amount << "; опаковка от ";
+	for (short i = 0; i < lenVidove; i++)
+	{
+		if (MaxAmountGood.Type == i) cout << Vidove[i] << endl;
+	}
+
+	system("pause");
+	return 0;
+}

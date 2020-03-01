@@ -1,0 +1,5 @@
+C:\Users\Nikolay\Documents\Visual Studio 2015\Projects\Lectures\2016-2017\OOP\Day 6\ShapesNonVirt\bin\Debug\ShapesNonVirt.exe.config
+C:\Users\Nikolay\Documents\Visual Studio 2015\Projects\Lectures\2016-2017\OOP\Day 6\ShapesNonVirt\bin\Debug\ShapesNonVirt.exe
+C:\Users\Nikolay\Documents\Visual Studio 2015\Projects\Lectures\2016-2017\OOP\Day 6\ShapesNonVirt\bin\Debug\ShapesNonVirt.pdb
+C:\Users\Nikolay\Documents\Visual Studio 2015\Projects\Lectures\2016-2017\OOP\Day 6\ShapesNonVirt\obj\Debug\ShapesNonVirt.exe
+C:\Users\Nikolay\Documents\Visual Studio 2015\Projects\Lectures\2016-2017\OOP\Day 6\ShapesNonVirt\obj\Debug\ShapesNonVirt.pdb

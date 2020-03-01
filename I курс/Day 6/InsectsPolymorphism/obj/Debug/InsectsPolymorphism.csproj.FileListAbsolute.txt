@@ -1,0 +1,6 @@
+C:\Users\Nikolay\Documents\Visual Studio 2015\Projects\Lectures\2016-2017\OOP\Day 6\InsectsPolymorphism\bin\Debug\InsectsPolymorphism.exe.config
+C:\Users\Nikolay\Documents\Visual Studio 2015\Projects\Lectures\2016-2017\OOP\Day 6\InsectsPolymorphism\bin\Debug\InsectsPolymorphism.exe
+C:\Users\Nikolay\Documents\Visual Studio 2015\Projects\Lectures\2016-2017\OOP\Day 6\InsectsPolymorphism\bin\Debug\InsectsPolymorphism.pdb
+C:\Users\Nikolay\Documents\Visual Studio 2015\Projects\Lectures\2016-2017\OOP\Day 6\InsectsPolymorphism\obj\Debug\InsectsPolymorphism.csprojResolveAssemblyReference.cache
+C:\Users\Nikolay\Documents\Visual Studio 2015\Projects\Lectures\2016-2017\OOP\Day 6\InsectsPolymorphism\obj\Debug\InsectsPolymorphism.exe
+C:\Users\Nikolay\Documents\Visual Studio 2015\Projects\Lectures\2016-2017\OOP\Day 6\InsectsPolymorphism\obj\Debug\InsectsPolymorphism.pdb

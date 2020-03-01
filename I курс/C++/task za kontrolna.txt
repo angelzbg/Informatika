@@ -1,0 +1,79 @@
+// ConsoleApplication4.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include<iostream>
+
+using namespace std;
+
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+  int arr[5] = { 2, 3, 9, 4, 1 };
+  int arrChetni[5];
+  int arrNechetni[5];
+  int arrFinal[5];
+  int chetniIndex = 0;
+  int nechetniIndex = 0;
+
+  //Transfer numbers
+  for (int i = 0; i < 5; i++)
+  {
+    if (arr[i] % 2 == 0)
+    {
+      arrChetni[chetniIndex] = arr[i];
+      chetniIndex++;
+    }
+    else{
+      arrNechetni[nechetniIndex] = arr[i];
+      nechetniIndex++;
+    }
+  }
+
+  //Sort Chetni
+  for (int i = 0; i < chetniIndex; i++)
+  {
+    for (int j = 0; j < chetniIndex - 1; j++)
+    {
+      if (arrChetni[j] > arrChetni[j + 1])
+      {
+        int tmp = arrChetni[j];
+        arrChetni[j] = arrChetni[j + 1];
+        arrChetni[j + 1] = tmp;
+      }
+    }
+  }
+
+  //Sort Nechetni
+  for (int i = 0; i < nechetniIndex; i++)
+  {
+    for (int j = 0; j < nechetniIndex - 1; j++)
+    {
+      if (arrNechetni[j] < arrNechetni[j + 1])
+      {
+        int tmp = arrNechetni[j];
+        arrNechetni[j] = arrNechetni[j + 1];
+        arrNechetni[j + 1] = tmp;
+      }
+    }
+  }
+
+  //Vrushtame gi
+  for (int i = 0; i < chetniIndex; i++)
+  {
+    arrFinal[i] = arrChetni[i];
+  }
+
+  for (int i = chetniIndex, k = 0; i < 5; i++, k++)
+  {
+    arrFinal[i] = arrNechetni[k];
+  }
+
+  //Print Array
+  for (int i = 0; i < 5; i++)
+  {
+    cout << arrFinal[i] << " ";
+  }
+  system("PAUSE");
+  return 0;
+}

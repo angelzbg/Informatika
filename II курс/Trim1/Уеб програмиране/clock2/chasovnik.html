@@ -1,0 +1,172 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Часовник</title>
+
+<style>
+body {
+  background: url("back.jpg") top center no-repeat;
+}
+
+.centre
+{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+}
+
+.clock {
+  border-radius: 50%;
+  border:1px solid black;
+  background: white url(chasovnik.png) no-repeat center;
+  background-size: 88%;
+  height: 500px;
+  position: relative;
+  width: 500px;
+}
+
+.clock.simple:after {
+  background: black;
+  border-radius: 50%;
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 5%;
+  height: 5%;
+  z-index: 10;
+}
+
+.minutes-container, .hours-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.hours {
+  background: black;
+  height: 20%;
+  left: 48.75%;
+  position: absolute;
+  top: 30%;
+  transform-origin: 50% 100%;
+  width: 1.5%;
+	border-top-left-radius:50%;
+	border-top-right-radius:50%;
+		z-index: 99 !important;
+}
+
+.minutes {
+  background: black;
+  height: 40%;
+  left: 49%;
+  position: absolute;
+  top: 10%;
+  transform-origin: 50% 100%;
+  width: 1%;
+	border-top-left-radius:50%;
+	border-top-right-radius:50%;
+		z-index: 99 !important;
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotateZ(360deg);
+  }
+}
+
+.hours-container {
+  animation: rotate 24s infinite linear;
+}
+.minutes-container {
+  animation: rotate 2s infinite linear;
+}
+
+.Center
+{
+	position: relative;
+	z-index: 99 !important;
+	border-radius: 50%;
+	height: 20px;
+	width: 20px;
+	background: black;
+	transform: translate(240px, 260px);
+}
+
+</style>
+
+<script type="text/javascript">
+//divIds съдържа 12 елемента (стринга), които са имената на Id-тата на div-овете, в които ще искаме да слагаме картинки за дадения час.
+var divIds = ["kartinka0", "kartinka1", "kartinka2", "kartinka3", "kartinka4", "kartinka5", "kartinka6", "kartinka7", "kartinka8", "kartinka9", "kartinka10", "kartinka11"];
+//Inners съдържа 12 стринга, които съръджат html код с картинките за часа с отместване по x и y спрямо центъра на страницата.
+var Inners = ["<img src='0.png' style='transform: translate(0px, -184px);'></img>", "<img src='1.png' style='transform: translate(90px, -160px);'></img>", "<img src='2.png' style='transform: translate(170px, -90px);'></img>", "<img src='3.png' style='transform: translate(195px, 0px);'></img>", "<img src='4.png' style='transform: translate(180px, 100px);'></img>", "<img src='5.png' style='transform: translate(100px, 170px);'></img>", "<img src='6.png' style='transform: translate(0px, 200px);'></img>", "<img src='7.png' style='transform: translate(-95px, 175px);'></img>", "<img src='8.png' style='transform: translate(-170px, 100px);'></img>", "<img src='9.png' style='transform: translate(-200px, 5px);'></img>", "<img src='10.png' style='transform: translate(-170px, -95px);'></img>", "<img src='11.png' style='transform: translate(-90px, -160px);'></img>"];
+
+var counter=0; //с него ще следим часа и имената на див-овете и картинките.
+var previousDiv = "nothing", currentDiv = "nothing", startDiv = "nothing"; //спомагателни стрингове, с които работим във функциите.
+function start() //изпълнява се при зареждане на html бодито
+{
+	startDiv = divIds[0]; //startDiv има стойност kartinka0 първи елемент от divIds
+	document.getElementById(startDiv).innerHTML = Inners[0]; /*в div с име kartinka0 сламе
+	<img src='0.png' style='transform: translate(0px, -184px);'></img> първи елемент от Inners*/
+}
+
+setInterval(function(){ //изпълнява се на всеки 2 секунди
+	counter++;
+	if(counter==12) counter=0;
+	
+	if(counter==0) 	previousDiv = "kartinka11";
+	else previousDiv = divIds[counter-1];
+	
+	currentDiv = divIds[counter];
+	
+	document.getElementById(previousDiv).innerHTML = " ";
+	document.getElementById(currentDiv).innerHTML = Inners[counter];
+},2000);
+</script>
+
+</head>
+
+
+
+<body onload="start()">
+
+<div class="centre">
+
+<div class="Center"></div>
+
+<article class="clock">
+  <div class="hours-container">
+    <div class="hours"></div>
+  </div>
+  <div class="minutes-container">
+    <div class="minutes"></div>
+  </div>
+</article>
+
+<div id="kartinka0" class="centre"></div>
+<div id="kartinka1" class="centre"></div>
+<div id="kartinka2" class="centre"></div>
+<div id="kartinka3" class="centre"></div>
+<div id="kartinka4" class="centre"></div>
+<div id="kartinka5" class="centre"></div>
+<div id="kartinka6" class="centre"></div>
+<div id="kartinka7" class="centre"></div>
+<div id="kartinka8" class="centre"></div>
+<div id="kartinka9" class="centre"></div>
+<div id="kartinka10" class="centre"></div>
+<div id="kartinka11" class="centre"></div>
+
+</div>
+
+</body>
+
+
+
+</html>

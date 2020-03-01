@@ -1,0 +1,26 @@
+.menu
+{
+	background-color:#48B88A;
+	height:800px;
+	width:125px;
+	float:left;
+}
+.content
+{
+	background-color:#EEEEEE;
+	height:800px;
+	width:800px;
+	float:left;
+}
+.footer
+{
+	background-color:#FFA500;
+	clear:both;
+	text-align:center;
+	width:925px
+}
+.header
+{
+	background-color:#84C83C;
+	width:925px
+}

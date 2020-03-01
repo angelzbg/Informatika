@@ -1,0 +1,98 @@
+#include <iostream>
+
+using std::cout;
+using std::endl;
+using std::cin;
+
+//eax - function return
+//edx - general purpose trashable register
+//ecx - general purpose trashable register; Use for array lengths when looping!
+//edi - use for array
+
+//imul op1, op2 - saved product of two in op1.
+//xor op, op - wipe
+//sub op1, op2 - saves op1 - op2 in op1
+
+int multAsm(int x, int y)
+{
+	_asm
+	{
+		push edx
+		push ecx
+			mov edx, x
+			mov ecx, y
+			imul edx, ecx
+			mov eax, edx
+		pop ecx
+		pop edx
+	}
+}
+
+int sumAsm(int x, int y) {
+	_asm
+	{
+		push edx
+		push ecx
+			mov edx, x 
+			mov ecx, y
+			adc edx, ecx 
+			mov eax, edx
+		pop ecx
+		pop edx
+	}
+}
+
+
+int sumArray(int arr[], int len)
+{
+	__asm
+	{ 
+		mov edi, arr
+		mov ecx, len	
+		xor eax, eax	// sum
+		L1 :
+			add eax, [edi]
+			add edi, 4
+		loop L1	//this decrements ecx and loops until it reaches 0
+	}
+}
+
+int findMax(int arr[], int len) {
+	__asm
+	{
+		mov edi, arr
+		mov ecx, len
+		mov eax, [edi]	//max
+
+			L1 :
+			cmp eax, [edi]
+			jl Replace
+
+			add edi, 4	
+			loop L1
+
+			jmp Done
+			
+			Replace : // saves the current value as the max one
+			mov eax, [edi]
+			jmp L1
+
+			Done :
+	}
+}
+
+
+int main()
+{
+
+	cout << "x*y (asm) = " << multAsm(8, 6) << endl;
+
+	cout << "x + y = " << sumAsm(5, 6) << endl;
+
+	int ar[] = { 9, 6, 7, 5, 4, 3, 2, 56, 1 };
+	cout << sumArray(ar, 9) << endl;
+	cout << findMax(ar, 9) << endl;
+
+	system("PAUSE"); return 0;
+}
+

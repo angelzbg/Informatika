@@ -1,0 +1,6 @@
+C:\Users\Nikolay\Documents\Visual Studio 2015\Projects\Lectures\2016-2017\OOP\Day 7\WakeUp\bin\Debug\WakeUp.exe.config
+C:\Users\Nikolay\Documents\Visual Studio 2015\Projects\Lectures\2016-2017\OOP\Day 7\WakeUp\bin\Debug\WakeUp.exe
+C:\Users\Nikolay\Documents\Visual Studio 2015\Projects\Lectures\2016-2017\OOP\Day 7\WakeUp\bin\Debug\WakeUp.pdb
+C:\Users\Nikolay\Documents\Visual Studio 2015\Projects\Lectures\2016-2017\OOP\Day 7\WakeUp\obj\Debug\WakeUp.csprojResolveAssemblyReference.cache
+C:\Users\Nikolay\Documents\Visual Studio 2015\Projects\Lectures\2016-2017\OOP\Day 7\WakeUp\obj\Debug\WakeUp.exe
+C:\Users\Nikolay\Documents\Visual Studio 2015\Projects\Lectures\2016-2017\OOP\Day 7\WakeUp\obj\Debug\WakeUp.pdb

@@ -1,0 +1,4 @@
+C:\Users\Nikolay\Documents\Visual Studio 2015\Projects\Lectures\2016-2017\OOP\Day 7\ArenaEngine\bin\Debug\ArenaEngine.dll
+C:\Users\Nikolay\Documents\Visual Studio 2015\Projects\Lectures\2016-2017\OOP\Day 7\ArenaEngine\bin\Debug\ArenaEngine.pdb
+C:\Users\Nikolay\Documents\Visual Studio 2015\Projects\Lectures\2016-2017\OOP\Day 7\ArenaEngine\obj\Debug\ArenaEngine.dll
+C:\Users\Nikolay\Documents\Visual Studio 2015\Projects\Lectures\2016-2017\OOP\Day 7\ArenaEngine\obj\Debug\ArenaEngine.pdb

@@ -1,0 +1,96 @@
+/* Масив от 5 числа;
+Да се извърши сортировка:
+1. Първо трябва да са четните числа във възходящ ред
+2. След това трябва да са нечетните в низходящ */
+#include<iostream>
+using namespace std;
+
+int main()
+{
+	short const len = 5; // променя се броя на масива и програмата пак си работи като пич
+	int a[len];
+	short CountChetni = 0, CountNechetni = 0;
+	for (short i = 0; i < len; i++)
+	{
+		cout << "a[" << i + 1 << "] = ";
+		cin >> a[i];
+		// бройкаме си колко са ни четните и нечетните
+		if (a[i] % 2 == 0) { CountChetni++; }
+		else { CountNechetni++; }
+	}
+
+	int *chetni = new int[CountChetni]; // масив с брой елементи колкото са четните
+	int *nechetni = new int[CountNechetni]; // масив с брой елементи колкото са нечетните
+
+	// присвояваме елементите от първия масив във новите 2 масива
+	// ---------->>>
+	short broikaChetni = 0, broikaNechetni = 0; // за индексите на двата нови масива в цикъла за присвояване на елементите от първия
+	for (short i = 0; i < len; i++)
+	{
+		if (a[i] % 2 == 0) // ако елемента е четен
+		{
+			chetni[broikaChetni] = a[i]; // се присвоява от елемент на масива с четните
+			broikaChetni++; // и след това индекса се вдига с 1 за следващия елемент /ако има такъв/
+		}
+		else // ако елемента е нечетен
+		{
+			nechetni[broikaNechetni] = a[i]; // се присвоява от елемент на масива с нечетните
+			broikaNechetni++; // и след това индекса се вдига с 1 за следващия елемент /ако има такъв/
+		}
+	} // <<<----------
+
+	// сортираме масивите както е по задание
+	// ----------->>>
+	for (short j = 0; j < CountChetni; j++)
+	{
+		for (short i = 0; i < CountChetni - 1; i++)
+		{
+			if (chetni[i]>chetni[i + 1])
+			{
+				int temp = chetni[i];
+				chetni[i] = chetni[i + 1];
+				chetni[i + 1] = temp;
+			}
+		}
+	}
+
+	for (short j = 0; j < CountNechetni; j++)
+	{
+		for (short i = 0; i < CountNechetni - 1; i++)
+		{
+			if (nechetni[i]<nechetni[i + 1])
+			{
+				int temp = nechetni[i];
+				nechetni[i] = nechetni[i + 1];
+				nechetni[i + 1] = temp;
+			}
+		}
+	} // <<<-----------
+
+	// присвояваме за елементите на началния масив подредените елементи от двата нови
+	// ---------->>>
+	for (short i = 0; i < CountChetni; i++) // първо са четните
+	{
+		a[i] = chetni[i]; // i съвпада с индексите и на двата по номерация до края на бройката на четните
+	}
+
+	for (short i = 0; i < CountNechetni; i++) // после нечетните
+	{
+		a[i + CountChetni] = nechetni[i]; // индекса на нечетните трябва да започва с (i + броя на четните) за да продължи масива от където спрехме от предния цикъл
+	} // <<<----------
+
+	cout << "Promenen masiv: ";
+	for (short i = 0; i < len; i++)
+	{
+		cout << a[i] << " ";
+	}
+	cout << endl;
+
+	delete[] chetni;
+	chetni = NULL;
+	delete[] nechetni;
+	nechetni = NULL;
+
+	system("pause");
+	return 0;
+}

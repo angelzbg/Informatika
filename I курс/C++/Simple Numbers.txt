@@ -1,0 +1,43 @@
+// ConsoleApplication4.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include<iostream>
+
+using namespace std;
+
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+  bool arr[1500];
+
+  for (int i = 0; i < 1500; i++)
+  {
+    arr[i] = false;
+  }
+
+  //Mark values
+  for (int i = 2; i < 1500; i++)
+  {
+    if (!arr[i])
+    {
+      for (int j = i * 2; j < 1500; j += i)
+      {
+        arr[j] = true;
+      }
+    }
+  }
+
+  //Show Numbers
+  for (int i = 2; i < 1500; i++)
+  {
+    if (!arr[i])
+    {
+      cout << i << endl;
+    }
+  }
+
+  system("PAUSE");
+  return 0;
+}
+

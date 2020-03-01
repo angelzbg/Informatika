@@ -1,0 +1,33 @@
+// ConsoleApplication4.cpp : Defines the entry point for the console application.
+//
+
+#include "stdafx.h"
+#include<iostream>
+#include<string>
+
+using namespace std;
+
+
+int _tmain(int argc, _TCHAR* argv[])
+{
+  string username = "";
+  string password = "";
+
+  cout << "Please enter username: " << endl;
+  cin >> username;
+
+  cout << "Please enter password: " << endl;
+  cin >> password;
+
+  if (username == "gosho" && password == "123321")
+  {
+    cout << "Logged!";
+  }
+  else{
+    cout << "Wrong Details";
+  }
+
+  system("PAUSE");
+  return 0;
+}
+

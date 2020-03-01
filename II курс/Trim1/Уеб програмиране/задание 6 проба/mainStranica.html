@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style> 
+.links
+{
+width:8em;
+color:black;
+background-color:white;
+padding:0.1em 5em;
+border:2px solid black;
+border-radius: 15px;
+font-weight: bold;
+}
+.transit {
+    -webkit-transition: width 2s, height 2s,-webkit-transform 2s;  /* For Safari 3.1 to 6.0 */
+    transition: width 2s, height 2s, transform 2s;
+} 
+.transit:hover {
+    -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
+    transform: rotate(180deg);
+}
+.anim {
+    -webkit-animation: myfirst 5s; /* Chrome, Safari, Opera */
+    animation: myfirst 10s;
+}
+
+@keyframes myfirst {		/* Standard syntax */
+    0%  {background: #66ff33;}
+    10%  {background: #33ff33;}
+	20% {background: #33ffff;}
+	30% {background: #cc33ff;}
+	40% {background: #ff33ff;}
+	50% {background: #ff33cc;}
+	100% {background: #ff3399;}
+} 
+</style>
+  <link rel="stylesheet" href="mysheet.css">
+<title>Книжарница BookWorm</title>
+</head>
+<body>
+<div id="header" class="header">
+<a href="mainStranica.html"><svg height="130" width="500">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:rgb(118,254,0);stop-opacity:1" />
+      <stop offset="100%" style="stop-color:rgb(0,254,144);stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <ellipse cx="100" cy="70" rx="85" ry="55" fill="url(#grad1)" />
+  <text fill="#e6005c" font-size="25" font-family="Verdana" x="35" y="80">BookWorm</text>
+</svg></a>
+
+<div class="reclama"><a href="#" ><img src="reclama.jpeg"   width=300px height=75px ></img></a></div>
+
+</div>
+
+<div class="topMenu">
+<center>
+<ul id="ul1">
+<li id="li1"><a id="a1" href="Produkti.html">Продукти</a><li>
+<li id="li1"><a id="a1" href="Poruchki.html">Поръчки</a><li>
+<li id="li1"><a id="a1" href="Mneniq.html">Мнения</a><li>
+<li id="li1"><a id="a1" href="mainStranica.html">Новини</a><li>
+<li id="li1"><a id="a1" href="Gallery.html">Галерия</a><li>
+</ul>
+</center>
+</div>
+
+<div id="menu" class="menu">
+<br>
+<ul id="ul2">
+<li id="li2"><a id="a2" href="ZaFirmata.html"><b>За фирмата</b></a></li>
+<li id="li2"><a id="a2" href="Partners.html"> Партньори<a> </li>
+<li id="li2"><a id="a2" href="RazvitieChart.html"> Развитие <a></li>
+</ul>
+&nbsp;<br><b><font style="padding-left:4px;">За собственика</font></b><br>
+<ul id="ul2">
+<li id="li2"><a id="a2" href="ZaSobstvenika.html"> CV <a></li>
+<li id="li2"><a id="a2" href="Movie.html"> Филм <a></li>
+<li id="li2"><a id="a2" href="Music.html"> Музика <a></li>
+</ul>
+</div>
+
+<div id="content" class="content">
+<center>
+<br><br><br>
+<div style="height:28px;" class="transit"><a style="text-decoration:none;" href="#"><font class="links">Текст1</font><a></div>
+<div style="height:28px;" class="transit"><a style="text-decoration:none;" href="#"><font class="links">Текст2</font><a></div>
+<div style="height:28px;" class="transit"><a style="text-decoration:none;" href="#"><font class="links">Текст3</font><a></div>
+<div class="transit"><a href="#"><img style="border-radius: 15px;" src="reclama.jpeg"></img><a></div><br>
+<div style="background: white; border:2px solid black; border-radius: 7px; width:300px;" class="anim"><a style="text-decoration:none;" href="#">Текст4<a></div><br>
+<div style="background: white; border:2px solid black; border-radius: 7px; width:300px;" class="anim"><a style="text-decoration:none;" href="#">Текст5<a></div><br>
+<div style="background: white; border:2px solid black; border-radius: 7px; width:300px;" class="anim"><a style="text-decoration:none;" href="#">Текст6<a></div>
+
+</center>
+</div>
+
+<div id="footer" class="footer">
+Copyright © BookWorm</div>
+</div>
+</body>
+</html>

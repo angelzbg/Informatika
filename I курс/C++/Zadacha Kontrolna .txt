@@ -1,0 +1,26 @@
+//Имаме масив от 5 числа
+	//Трябва да сортираме числата по следния начин
+	//Първо трябва да са четните числа във Възходящ ред
+	//След това трябва да са нечетните числа в низходящ ред
+	//Числата трябва да са в масива подредени по този начин
+	
+	sladko1,kiselo1,kiselo2,sladko2,kiselo3
+	
+	Kashon[5]
+	Sladki - chetni
+	Kiseli - Nechetni
+	
+	KashonSladko[5], kashonSladkoIndex=2
+	sladko1[0]
+	sladko2[1]
+	
+	KashonKislo[5], kashonKiseloIndex=3
+	kiselo1[0]
+	kiselo2[1]
+	kiselo3[2]
+	
+	KashonFinal[5]
+	
+	Final
+	Sladki,Kiseli
+	

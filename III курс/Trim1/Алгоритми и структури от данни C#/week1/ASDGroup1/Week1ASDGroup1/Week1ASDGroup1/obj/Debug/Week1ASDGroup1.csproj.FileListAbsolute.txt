@@ -1,0 +1,7 @@
+C:\Users\nvj\Desktop\ASDGroup1\Week1ASDGroup1\Week1ASDGroup1\bin\Debug\Week1ASDGroup1.exe.config
+C:\Users\nvj\Desktop\ASDGroup1\Week1ASDGroup1\Week1ASDGroup1\bin\Debug\Week1ASDGroup1.exe
+C:\Users\nvj\Desktop\ASDGroup1\Week1ASDGroup1\Week1ASDGroup1\bin\Debug\Week1ASDGroup1.pdb
+C:\Users\nvj\Desktop\ASDGroup1\Week1ASDGroup1\Week1ASDGroup1\obj\Debug\Week1ASDGroup1.csprojAssemblyReference.cache
+C:\Users\nvj\Desktop\ASDGroup1\Week1ASDGroup1\Week1ASDGroup1\obj\Debug\Week1ASDGroup1.csproj.CoreCompileInputs.cache
+C:\Users\nvj\Desktop\ASDGroup1\Week1ASDGroup1\Week1ASDGroup1\obj\Debug\Week1ASDGroup1.exe
+C:\Users\nvj\Desktop\ASDGroup1\Week1ASDGroup1\Week1ASDGroup1\obj\Debug\Week1ASDGroup1.pdb

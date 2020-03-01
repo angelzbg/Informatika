@@ -1,0 +1,53 @@
+/* Масив с 10 елемента
+Да се сортират четните числа на масива във възходящ ред и се изведат на екрана*/
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	const short len = 10;
+	long long a[len];
+	short broiChetni = 0;
+	for (short i = 0; i < len; i++)
+	{
+		cout << "a[" << i + 1 << "] = "; cin >> a[i];
+		if (a[i] % 2 == 0) broiChetni++;
+	}
+
+	long long *b = new long long[broiChetni];
+	short indexChetni = 0;
+	for (short i = 0; i < len; i++)
+	{
+		if (a[i] % 2 == 0)
+		{
+			b[indexChetni] = a[i];
+			indexChetni++;
+		}
+	}
+
+	for (short j = 0; j < broiChetni; j++)
+	{
+		for (short i = 0; i < broiChetni - 1; i++)
+		{
+			if (b[i]>b[i + 1])
+			{
+				long long temp = b[i];
+				b[i] = b[i + 1];
+				b[i + 1] = temp;
+			}
+		}
+	}
+
+	cout << "Masiv sled sortiraneto: ";
+	for (short i = 0; i < broiChetni; i++)
+	{
+		cout << b[i] << " ";
+	}cout << endl;
+
+	delete[] b;
+	b = NULL;
+
+	system("pause");
+	return 0;
+}

@@ -1,0 +1,83 @@
+/* Масив от 5 числа;
+Да се извърши сортировка:
+1. Първо трябва да са четните числа във възходящ ред
+2. След това трябва да са нечетните в низходящ */
+#include<iostream>
+using namespace std;
+
+int main()
+{
+	long long a[5];
+	short BroiChetni = 0, BroiNechetni = 0;
+	for (short i = 0; i < 5; i++)
+	{
+		cout << "a[" << i + 1 << "] = "; cin >> a[i];
+		if (a[i] % 2 == 0) BroiChetni++;
+		else BroiNechetni++;
+	}
+
+	long long *chetni = new long long[BroiChetni];
+	long long *nechetni = new long long[BroiNechetni];
+
+	short indexChetni = 0, indexNechetni = 0;
+	for (short i = 0; i < 5; i++)
+	{
+		if (a[i] % 2 == 0)
+		{
+			chetni[indexChetni] = a[i];
+			indexChetni++;
+		}
+		else
+		{
+			nechetni[indexNechetni] = a[i];
+			indexNechetni++;
+		}
+	}
+
+	for (short g = 0; g < BroiChetni; g++)
+	{
+		for (short i = 0; i < BroiChetni - 1; i++)
+		{
+			if (chetni[i]>chetni[i + 1])
+			{
+				long long temp = chetni[i];
+				chetni[i] = chetni[i + 1];
+				chetni[i + 1] = temp;
+			}
+		}
+	}
+
+	for (short g = 0; g < BroiNechetni; g++)
+	{
+		for (short i = 0; i < BroiNechetni - 1; i++)
+		{
+			if (nechetni[i]<nechetni[i + 1])
+			{
+				long long temp = nechetni[i];
+				nechetni[i] = nechetni[i + 1];
+				nechetni[i + 1] = temp;
+			}
+		}
+	}
+
+	for (short i = 0; i < BroiChetni; i++)
+	{
+		a[i] = chetni[i];
+	}
+	for (short i = 0; i < BroiNechetni; i++)
+	{
+		a[i+BroiChetni] = nechetni[i];
+	}
+
+	cout << "Sled sortirovka: ";
+	for (short i = 0; i < 5; i++)
+	{
+		cout << a[i] << " ";
+	}cout << endl;
+
+	delete[] chetni, nechetni;
+	chetni = nechetni = NULL;
+
+	system("pause");
+	return 0;
+}

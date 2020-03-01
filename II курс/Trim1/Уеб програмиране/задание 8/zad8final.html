@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Задание 8</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="javascript.js"></script>
+</head>
+
+<body>
+	<div class="bg">
+		<center>
+		<div id="wrap">
+		<div id="calc" class="calc" onmouseout="makemefade()" onmouseover="makemevisible()">
+			<div class="calcHead">Бизнес калкулатор</div>
+			
+			<div>
+				<font color="#3399ff" class = "inputTitle">Приходи</font> <font color="red" class = "inputTitle">Разходи</font>
+				<div id="data">
+					<div id = 'month1' class = 'month'>
+						Месец 1
+						<input id='prihod1' type='number' step="0.01" min="0" placeholder='0' class="numberBox">
+						<input id='razhod1' type='number' step="0.01" min="0" placeholder='0' class="numberBox">
+						<input type='button' onclick= "removeMonth(1)" value='X'/>
+					</div>
+				</div>
+				<br>
+			</div>
+			
+			<div>
+				<input type='button' id="calc1" class="button" onclick='displayTax()' value='Изчисли данък'/>
+				<input type='button' id="calc2" class="button" onclick='displayProfit()' value='Изчисли печалба'/>
+				<input type='button' id="add" class="button" onclick='addMonth()' value='Добави месец'/>
+			</div>
+			
+			<br>
+			<center>
+				<div id="tax"></div>
+				<div id="profit"></div>
+			</center>
+		</div>
+		<br>
+		<div><input type='button' id="butcr" value='Show credits' onclick='showCredits()'/></div>
+		<div id='credits'>
+			Ангел Златанов: функции за изчисление данък и печалба<br>
+			Ангел Георгиев: функции за добавяне и премахване на месец и почистване на кода<br>
+			Анелия Ангелова: функция за валидация на входните данни и по-голямата част от html/css кода и козметични функции
+		</div>
+		
+
+		</div>
+		</center>
+	</div>
+</body>
+</html>

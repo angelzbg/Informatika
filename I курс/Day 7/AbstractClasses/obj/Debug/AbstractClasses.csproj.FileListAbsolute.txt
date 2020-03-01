@@ -1,0 +1,5 @@
+C:\Users\Nikolay\Documents\Visual Studio 2015\Projects\Lectures\2016-2017\OOP\Day 7\AbstractClasses\bin\Debug\AbstractClasses.exe.config
+C:\Users\Nikolay\Documents\Visual Studio 2015\Projects\Lectures\2016-2017\OOP\Day 7\AbstractClasses\bin\Debug\AbstractClasses.exe
+C:\Users\Nikolay\Documents\Visual Studio 2015\Projects\Lectures\2016-2017\OOP\Day 7\AbstractClasses\bin\Debug\AbstractClasses.pdb
+C:\Users\Nikolay\Documents\Visual Studio 2015\Projects\Lectures\2016-2017\OOP\Day 7\AbstractClasses\obj\Debug\AbstractClasses.exe
+C:\Users\Nikolay\Documents\Visual Studio 2015\Projects\Lectures\2016-2017\OOP\Day 7\AbstractClasses\obj\Debug\AbstractClasses.pdb

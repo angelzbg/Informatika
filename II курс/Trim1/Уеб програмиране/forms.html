@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+	
+		<title>Forms</title>
+		<meta charset="UTF-8" />
+		
+	</head>
+	
+	 <body>
+		<h1>Данни на студента</h1>
+		<form name="students" action="#" method="get">
+			
+			Име: <input type="text" name="stuNumber" size="35" placeholder="Въведете име" required autofocus />
+			Ф.номер: <input type="text" name="fn" maxlength="10" /> <br /><br />
+			Е-поща: <input type="email" name="mail" />
+			Парола: <input type="password" name="passwd" /> <br /><br />
+			Курс:
+				<select name="kurs">
+					<option value="1">I</option>
+					<option value="2" selected>II</option>
+					<option value="3">III</option>
+					<option value="4">IV</option>
+				</select>
+				
+			Специалност:
+				<input type="text" name="spec" list="sp" />
+				<datalist id="sp">
+					<option value="Информатика" />
+					<option value="Математика" selected />
+					<option value="БИТ" />
+				</datalist><br /><br />
+				
+			Пол: 
+				<input type="radio" value="m" name="pol" checked /> мъж
+				<input type="radio" value="j" name="pol" /> жена<br /><br />
+			Владеене на чужди езици:<br />
+				<input type="checkbox" value="en" name="ezik" /> Английски <br />
+				<input type="checkbox" value="ru" name="ezik" /> Руски <br />
+				<input type="checkbox" value="dr" name="ezik" /> Друг <br />
+			Кратка автобиография: <br />
+				<textarea name="cv" cols="28" rows="5" placeholder="..." ></textarea><br /><br />
+				<input id="date" type="date" value="2017-06-01">
+				<br /><br /><input type="reset" value="Ново въвеждане" />
+				<input type="submit" value="Изпрати" />
+		</form>
+	 
+	 </body>
+ 
+</html>
+

@@ -1,0 +1,88 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+const short len = 5; // а)
+
+struct MyStruct // а)
+{
+	string startDest;
+	string endDest;
+	float routelen;
+};
+
+float AVGRouteLen(MyStruct *array, short len, string substring) // б)
+{
+	float sum = 0;
+	int count = 0;
+	for (short i = 0; i < len; i++)
+	{
+		if (array[i].endDest.rfind(substring, 0) == 0)
+		{
+			sum += array[i].routelen;
+			count++;
+		}
+	}
+	return sum / count;
+}
+
+void PrintStartDest(MyStruct *array, short araylen, int stringlen) // в)
+{
+	cout << "Имена на начални дестинации, по-дълги от " << stringlen << " символа :" << endl;
+	for (short i = 0; i < araylen; i++)
+	{
+		bool isPrintedAlready = false;
+
+		if (array[i].startDest.length() > stringlen)
+		{
+			for (short j = 0; j < i; j++)
+			{
+				if (array[i].startDest.compare(array[j].startDest))
+				{
+					isPrintedAlready = true;
+					break;
+				}
+			}
+			if (!isPrintedAlready) cout << array[i].startDest << " ";
+		}
+	}
+	cout << endl;
+}
+
+int main()
+{
+	system("chcp 1251 >> nul");
+
+	MyStruct SArray[len]; //а)
+
+	//пълним масива за тест:
+	SArray[0].startDest = "Пловдив";
+	SArray[0].endDest = "София";
+	SArray[0].routelen = 145.78;
+
+	SArray[1].startDest = "Бургас";
+	SArray[1].endDest = "София";
+	SArray[1].routelen = 382.45;
+
+	SArray[2].startDest = "Варна";
+	SArray[2].endDest = "София";
+	SArray[2].routelen = 442.07;
+
+	SArray[3].startDest = "Пловдив";
+	SArray[3].endDest = "Шумен";
+	SArray[3].routelen = 292.21;
+
+	SArray[4].startDest = "Варна";
+	SArray[4].endDest = "Монтана";
+	SArray[4].routelen = 422.47;
+
+	//тестваме:
+
+	cout << "Краен пункт София (средно разстояние на маршрути): " << AVGRouteLen(SArray, len, "Соф") << endl;
+
+	PrintStartDest(SArray, len, 6);
+
+	system("pause");
+	return 0;
+}

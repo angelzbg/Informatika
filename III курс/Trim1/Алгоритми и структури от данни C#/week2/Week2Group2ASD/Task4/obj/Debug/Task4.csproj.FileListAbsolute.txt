@@ -1,0 +1,7 @@
+C:\Users\nvj\source\repos\Week2Group2ASD\Task4\bin\Debug\Task4.exe.config
+C:\Users\nvj\source\repos\Week2Group2ASD\Task4\bin\Debug\Task4.exe
+C:\Users\nvj\source\repos\Week2Group2ASD\Task4\bin\Debug\Task4.pdb
+C:\Users\nvj\source\repos\Week2Group2ASD\Task4\obj\Debug\Task4.csprojAssemblyReference.cache
+C:\Users\nvj\source\repos\Week2Group2ASD\Task4\obj\Debug\Task4.csproj.CoreCompileInputs.cache
+C:\Users\nvj\source\repos\Week2Group2ASD\Task4\obj\Debug\Task4.exe
+C:\Users\nvj\source\repos\Week2Group2ASD\Task4\obj\Debug\Task4.pdb

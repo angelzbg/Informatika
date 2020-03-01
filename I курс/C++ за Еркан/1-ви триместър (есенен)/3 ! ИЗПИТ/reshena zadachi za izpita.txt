@@ -1,0 +1,56 @@
+/*
+1. Да се въведат количествата събрани ягоди за всеки ден от 15 до 30 май.
+2. Да се намери, през кои два поредни дни има общо най-много събрани плодове.
+3. Да се въведе число и да се изведат дните със събрано количество ягоди повече от въведеното число.
+4. Да се изведе сумата от всички количества.
+*/
+
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	const short n = 16;
+	int a[n];
+
+	for (short i = 0; i < n; i++)
+	{
+		cout << "Kolichestvo qgodi za " << i + 15 << " May : ";
+		cin >> a[i];
+	}
+
+	int MAXsum = a[0] + a[1];
+	short day1 = 0, day2 = 1;
+	for (short i = 1; i < n - 1; i++)
+	{
+		if (a[i] + a[i + 1]>MAXsum)
+		{
+			MAXsum = a[i] + a[i + 1];
+			day1 = i;
+			day2 = i + 1;
+		}
+	}
+	cout << "Naj-mnogo iagodi v posledovatelni dni ima v dnite " << day1 + 15 << " & " << day2 + 15 << " prez mesec May = " << MAXsum << endl;
+
+	float chislo;
+	cout << "Vudevede chislo: ";
+	cin >> chislo;
+	cout << "Dni sus subrano kolichestvo pvoeche ot " << chislo << " sa: ";
+	for (short i = 1; i < n; i++)
+	{
+		if (a[i]>chislo)
+		{
+			cout << i + 15 << " ";
+		}
+	} cout << endl;
+
+	int sum = 0;
+	for (short i = 1; i < n ; i++)
+	{
+		sum = sum + a[i];
+	}
+	cout << "Sumata na vsichki subrani qgodi prez mesec May = " << sum << endl;
+
+	system("pause");
+	return 0;
+}

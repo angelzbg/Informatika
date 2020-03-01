@@ -1,0 +1,103 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+const int N = 3;
+int counter = 0;
+
+struct Apartment{
+	short numberRooms;
+	double area;
+	string name;
+};
+
+struct Building{
+	short numberFloor;
+	double area;
+	string address;
+	Apartment apartments[N];
+}building;
+
+void CreateApartment()
+{
+	cout << "<-------Creating apartment------->" << endl;
+	cout << "Apartment name: ";
+	cin >> building.apartments[counter].name;
+	cin.ignore(1);
+
+	cout << "Number rooms: ";
+	cin >> building.apartments[counter].numberRooms;
+
+	cout << "Area: ";
+	cin >> building.apartments[counter].area;
+	cout << "<--The apartment has been created-->" << endl;
+
+	counter++;
+}
+
+void ShowApartments()
+{
+	for (short i = 0; i < counter; i++)
+	{
+		cout << building.apartments[i].name << endl;
+	}
+}
+
+short Menu()
+{
+	short choice;
+	if (counter < N)
+	{
+		cout << "1. New apartment" << endl;
+		cout << "2. Show buildings" << endl;
+		cout << "3. Exit" << endl;
+
+		cout << "Choice: ";
+		cin >> choice;
+	}
+	else
+	{
+		cout << "1. Show buildings" << endl;
+		cout << "2. Exit" << endl;
+
+		cout << "Choice: ";
+		cin >> choice;
+	}
+
+	return choice;
+}
+
+int main()
+{
+	building.address = "Bul. Bulgaria 236";
+	building.numberFloor = 10;
+	building.area = 1000;
+
+	bool check = true;
+	while (check)
+	{
+		short choice = Menu();
+		if (counter < N)
+		{
+			switch (choice)
+			{
+			case 1: CreateApartment(); break;
+			case 2: ShowApartments(); break;
+			case 3: check = false; break;
+			default: cout << "Wrong choice !" << endl; break;
+			}
+		}
+		else
+		{
+			switch (choice)
+			{
+			case 1: ShowApartments(); break;
+			case 2: check = false; break;
+			default: cout << "Wrong choice !" << endl; break;
+			}
+		}
+	}
+
+	system("pause");
+	return 0;
+}

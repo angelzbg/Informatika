@@ -1,0 +1,107 @@
+﻿<html>
+
+<head>
+<title>Детски часовник</title>
+
+<style>
+.center {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	background-color: lightblue;
+	border-radius: 25px;
+	border: 2px solid black;
+}
+
+.clock {
+	border-radius: 50%;
+	border:1px solid gray;
+	background: white url(img/clock0.png) no-repeat center;
+	background-size: 90%;
+	height: 500px;
+	position: relative;
+	width: 500px;
+}
+
+@keyframes spin { 100% { transform: rotateZ(360deg); } }
+
+.hoursWrapDiv {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	animation: spin 36s infinite linear;
+}
+
+.minutesWrapDiv {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  animation: spin 3s infinite linear;
+}
+
+.hours {
+	background: black;
+	height: 20%;
+	left: 49.25%;
+	position: absolute;
+	top: 30%;
+	width: 1.5%;
+	border-top-left-radius:50%;
+	border-top-right-radius:50%;
+}
+
+.minutes {
+	background: black;
+	height: 40%;
+	left: 49.5%;
+	position: absolute;
+	top: 10%;
+	width: 1%;
+	border-top-left-radius:50%;
+	border-top-right-radius:50%;
+}
+
+.centerNail {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	background-color: black;
+	border-radius: 50%;
+	width:20px;;
+	height:20px;;
+}
+
+</style>
+
+<script>
+var counter=1;
+var fullString = "imenanakartinki";
+setInterval(function(){
+	if(counter==12) counter=0;
+	fullString = "url('img/clock"+counter+".png')";
+	document.getElementById('clock').style.backgroundImage = fullString;
+	counter++;
+},3000);
+</script>
+</head>
+
+<body style="background: url('img/wall.jpg') top center no-repeat;">
+	<div class="center">
+		<div class="clock" id="clock">
+			<div class="hoursWrapDiv"> <div class="hours"></div> </div>
+			<div class="minutesWrapDiv"> <div class="minutes"></div> </div>
+		</div>
+	</div>
+
+	<div class="centerNail"></div>
+</body>
+
+</html>

@@ -1,0 +1,9 @@
+c:\users\ftwan\documents\visual studio 2017\Projects\2_3ta_1601261021\2_3ta_1601261021\bin\Debug\netcoreapp1.1\2_3ta_1601261021.deps.json
+c:\users\ftwan\documents\visual studio 2017\Projects\2_3ta_1601261021\2_3ta_1601261021\bin\Debug\netcoreapp1.1\2_3ta_1601261021.runtimeconfig.json
+c:\users\ftwan\documents\visual studio 2017\Projects\2_3ta_1601261021\2_3ta_1601261021\bin\Debug\netcoreapp1.1\2_3ta_1601261021.runtimeconfig.dev.json
+c:\users\ftwan\documents\visual studio 2017\Projects\2_3ta_1601261021\2_3ta_1601261021\bin\Debug\netcoreapp1.1\2_3ta_1601261021.dll
+c:\users\ftwan\documents\visual studio 2017\Projects\2_3ta_1601261021\2_3ta_1601261021\bin\Debug\netcoreapp1.1\2_3ta_1601261021.pdb
+c:\users\ftwan\documents\visual studio 2017\Projects\2_3ta_1601261021\2_3ta_1601261021\obj\Debug\netcoreapp1.1\2_3ta_1601261021.csprojResolveAssemblyReference.cache
+c:\users\ftwan\documents\visual studio 2017\Projects\2_3ta_1601261021\2_3ta_1601261021\obj\Debug\netcoreapp1.1\2_3ta_1601261021.AssemblyInfo.cs
+c:\users\ftwan\documents\visual studio 2017\Projects\2_3ta_1601261021\2_3ta_1601261021\obj\Debug\netcoreapp1.1\2_3ta_1601261021.dll
+c:\users\ftwan\documents\visual studio 2017\Projects\2_3ta_1601261021\2_3ta_1601261021\obj\Debug\netcoreapp1.1\2_3ta_1601261021.pdb

@@ -1,0 +1,121 @@
+﻿<!DOCTYPE html>
+<html>
+
+<header>
+<title>Новини</title>
+<link rel="stylesheet" type="text/css" href="styles/mystyle.css">
+
+<style>
+.animaciika {
+    -webkit-animation: myfirst 5s; /* Chrome, Safari, Opera */
+    animation: myfirst 30s;
+}
+
+@keyframes myfirst {		/* Standard syntax */
+    0%  {background: #66ff33;}
+    5%  {background: #33ff33;}
+    10% {background: #33ff66;}
+    15% {background: #33ff99;}
+	20% {background: #33ffcc;}
+	25% {background: #33ffff;}
+	30% {background: #33ccff;}
+	35% {background: #3399ff;}
+	40% {background: #3366ff;}
+	45% {background: #3333ff;}
+	50% {background: #6633ff;}
+	60% {background: #9933ff;}
+	70% {background: #cc33ff;}
+	80% {background: #ff33ff;}
+	90% {background: #ff33cc;}
+	100% {background: #ff3399;}
+} 
+.bam {
+    -webkit-transition: width 2s, height 2s,-webkit-transform 2s;  /* For Safari 3.1 to 6.0 */
+    transition: width 2s, height 2s, transform 2s;
+} 
+.bam:hover {
+    -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
+    transform: rotate(180deg);
+}
+.bam2:hover {
+    -webkit-transform: rotate(180deg); /* Chrome, Safari, Opera */
+    transform: rotate(180deg);
+}
+
+</style>
+</header>
+
+<div id="header" class="header">
+<img src="pages/top.png"</img>
+
+<a href="index.html"><svg height="130" width="500">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:rgb(28,209,82);stop-opacity:1" />
+      <stop offset="100%" style="stop-color:rgb(73,229,135);stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <ellipse cx="170" cy="70" rx="150" ry="55" fill="url(#grad1)" />
+  <text fill="#ffffff" font-size="45" font-family="Arial" x="50" y="86">Лозята.цом</text>
+  Sorry, your browser does not support inline SVG.
+</svg></a>
+
+<a href="#" id="reclama" class="reclama"><img src="pages/test.jpeg"></img></a><br><br>
+</div>
+
+<body>
+
+<div id="topMenu" class="topMenu">
+<b><center>
+<a id="test" href="index.html" class="menuBox1">Начало</a>
+<a id="test" href="pages/novini.html" class="menuBox1">Новини</a>
+<a id="test" href="pages/products.html" class="menuBox1">Продукти</a>
+<a id="test" href="pages/gallery.html" class="menuBox1">Галерия</a>
+<a id="test" href="pages/poruchki.html" class="menuBox1">Поръчки</a>
+<a id="test" href="pages/mneniq.html" class="menuBox1">Мнения</a>
+</center></b>
+</div>
+
+<div style="background-color:#e6fff7; min-height: 500px; width:125px; float:left; border-right: 1px solid gray; border-right-style:dotted; border-bottom-left-radius: 15px; border-left:4px solid #84C83C; border-left-color:#84C83C;border-bottom: 1px solid #99ff99;">
+<div id="menu" class="menu">
+<b>
+<center>Menu<br>
+<ul class="SideMenu">
+	<li><a href="pages/firmata.html">За фирмата</a></li>
+	<li><a href="pages/partniori.html">партньори</a></li>
+	<li><a href="pages/razvitie.html">развитие</a></li>
+За собственика<br>
+	<li><a href="pages/CV.html">CV</a></li>
+	<li><a href="pages/film.html">филм</a></li>
+	<li><a href="pages/muzika.html">музика</a></li>
+</ul>
+</center></b>
+</div>
+</div>
+
+<div id="content" class="content">
+<br>
+<center>
+<div style="border:1px solid; border-left:none; border-right:none; height:462px; width:680px;">
+<h1>Раздвижена рекламна страница???</h1>
+
+<div class="animaciika"><a href="#">РЕКЛАМКА1</a></div><br>
+<div class="bam"><a id="test" class="menuBox1" href="#">РЕКЛАМКА2</a></div><br>
+<div class="bam"><a id="test" class="menuBox1" href="#">РЕКЛАМКА3</a></div><br>
+<div class="bam"><a id="test" class="menuBox1" href="#">РЕКЛАМКА4</a></div><br>
+<div class="animaciika"><a href="#">РЕКЛАМКА5</a></div><br>
+<div class="bam2"><a href="#"><img style="border: 1px solid; border-radius: 13px;" src="pages/test.jpeg"></img></a></div>
+
+</div>
+</center>
+
+</div>
+<br>&nbsp;
+</body>
+<footer>
+<div id="footer" class="footer">
+Copyright © Лозята.цом</div>
+</div>
+</footer>
+
+</html>

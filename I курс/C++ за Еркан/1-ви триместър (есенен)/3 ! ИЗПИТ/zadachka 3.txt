@@ -1,0 +1,49 @@
+/*
+Някъв бавняр тича всеки ден в продължение на 15 дни.
+Да се напише програма, която да въвежда изминатите километри за всеки ден;
+да извежда най-голямото изминато разстояние за ден и дните, в които е изминато;
+да изведе сумата на изминатото разстояние за всички дни.
+*/
+
+#include <iostream>
+using namespace std;
+int main()
+{
+	const short n = 15;
+	float a[n];
+	for (short i = 0; i < n; i++)
+	{
+		cout << "Izminati km za den " << i + 1 << " : ";
+		cin >> a[i];
+	}
+
+	float max = a[0]; // ако напишем max = 0
+	for (short i = 1; i < n; i++) // тогава тук ще трябва да започнем от short i = 0
+	{
+		if (a[i]>max)
+		{
+			max = a[i];
+		}
+	}
+	cout << "\nMaximalno izminato razstoianie: " << max << " km" << endl;
+
+	cout << "V dnite: ";
+	for (short i = 0; i < n; i++)
+	{
+		if (a[i] == max)
+		{
+			cout << i+1 << " ";
+		}
+	}
+	cout << endl;
+
+	float sum = 0;
+	for (short i = 0; i < n; i++)
+	{
+		sum += a[i];
+	}
+	cout << "Suma ot izminatoto razstoianie za vsichki dni: " << sum << " km" << endl;
+
+	system("pause");
+	return 0;
+}

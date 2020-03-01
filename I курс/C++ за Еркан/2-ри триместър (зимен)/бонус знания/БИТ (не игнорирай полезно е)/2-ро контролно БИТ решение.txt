@@ -1,0 +1,120 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+const int N = 10;
+int counter = 0;
+
+struct Sphone
+{
+	string name;
+	string model;
+	double price;
+};
+
+struct Stechstore
+{
+	string name;
+	string address;
+	Sphone phones[N];
+}Store;
+/*
+може и извън структурата:
+Stechstore Store;
+*/
+
+int Menu()
+{
+	cout << "1. Нов телефон" << endl;
+	cout << "2. Покажи всички телефони" << endl;
+	cout << "3. Покажи най-скъпите/я телефон(и)" << endl;
+	cout << "4. Покажи сумата от цените на телефоните" << endl;
+	cout << "5. Изход" << endl;
+	cout << "Изберете опция:: ";
+	int opciq; cin >> opciq;
+
+	return opciq;
+}
+
+void CreatePhone()
+{
+	if (counter >= N) cout << "FULL!!!!!!!!!!!!!" << endl;
+	else
+	{
+		cout << "Въведете марката на телефона: "; cin >> Store.phones[counter].name; cin.ignore();
+		cout << "Въведете модела на телефона: "; cin >> Store.phones[counter].model; cin.ignore();
+		cout << "Въведете цената на телефона: "; cin >> Store.phones[counter].price;
+
+		counter++;
+	}
+}
+
+void ShowAllPhones()
+{
+	cout << "---------Списък на телефоните---------" << endl;
+	for (int i = 0; i < counter; i++)
+	{
+		cout << "#" << i + 1 << " Марка на телефон: " << Store.phones[i].name << endl;
+		cout << "#" << i + 1 << " Модел на телефон: " << Store.phones[i].model << endl;
+		cout << "#" << i + 1 << " Цена на телефон: " << Store.phones[i].price << " лв." << endl;
+		cout << endl;
+	}
+	cout << "--------------------------------------" << endl;
+}
+
+void ShowMostExpensivePhone()
+{
+	Sphone ExpensivePhone = Store.phones[0];
+	for (int i = 0; i < counter; i++)
+	{
+		if (ExpensivePhone.price < Store.phones[i].price)
+		{
+			ExpensivePhone = Store.phones[i];
+		}
+	}
+	cout << "Цена на най-скъпия телефон: " << ExpensivePhone.price << " лв." << endl;
+	cout << "Телефони с тази цена: ";
+	for (int i = 0; i < counter; i++)
+	{
+		if (Store.phones[i].price == ExpensivePhone.price)
+		{
+			cout << Store.phones[i].name << " ";
+		}
+	}
+	cout << endl;
+}
+
+void ShowTotalPhonePrice()
+{
+	double sum = 0;
+	for (int i = 0; i < counter; i++)
+	{
+		sum += Store.phones[i].price;
+	}
+	cout << "Обща сума от цените на телефоните: " << sum << " лв." << endl;
+}
+
+int main()
+{
+	system("chcp 1251"); //за да активира кирилицата
+	Store.name = "Глобул";
+	Store.address = "бул. България №25";
+
+	bool check = true;
+	while (check)
+	{
+		int choice = Menu();
+		switch (choice)
+		{
+		case 1: CreatePhone(); break;
+		case 2: ShowAllPhones(); break;
+		case 3: ShowMostExpensivePhone(); break;
+		case 4: ShowTotalPhonePrice(); break;
+		case 5: check = false; break;
+		default: cout << "Грешна опция, моля опитайте отново!" << endl; break;
+		}
+	}
+
+	system("pause");
+	return 0;
+}

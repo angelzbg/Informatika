@@ -1,0 +1,36 @@
+/*сбекхвере гюокюрю мю яксфхрек 105 я 1200*/ 
+
+UPDATE EMPLOYEES 
+SET SALARY+=1200 
+WHERE EMPLOYEE_ID = 105 
+
+/*сбекхвере гюокюрхре мю яксфхрекхре, йнхрн пюанрър 
+б нрдек 50 х онксвюбюр гюокюрю он-люкйю нр 6000, я 10%*/ 
+
+UPDATE EMPLOYEES 
+SET SALARY*=1.1 
+WHERE DEPARTMENT_ID = 50 AND SALARY < 6000 
+
+/*сбекхвере йнкхвеярбнрн, б йнерн е ахк онпзвюм опндсйр 3167 
+б онпзвйю 2354, я 200 апнъ х мюлюкере ед. жемю я 3%*/ 
+
+UPDATE ORDER_ITEMS 
+SET QUANTITY+=200, UNIT_PRICE*=0.97 
+WHERE ORDER_ID = 2354 AND PRODUCT_ID = 3167 
+
+/*хгрпхире пецхнм 1*/ 
+
+DELETE FROM REGIONS 
+WHERE REGION_ID = 1 
+
+DELETE FROM CUSTOMERS 
+WHERE CUSTOMER_ID = 104 
+
+DELETE FROM CUSTOMERS 
+WHERE CUSTOMER_ID = 930 
+
+DELETE FROM ORDERS 
+WHERE ORDER_ID = 2354 
+
+DELETE FROM DEPARTMENTS 
+WHERE DEPARTMENT_ID = 60 

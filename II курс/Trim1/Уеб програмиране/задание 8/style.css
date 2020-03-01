@@ -1,0 +1,103 @@
+﻿body, html{
+height:100%;
+margin:0px;
+}
+
+.bg{
+background-image: url("back.jpg");
+min-height:100%;
+background-position: center;
+background-repeat: no-repeat;
+background-size:cover;
+}
+
+.calc {
+	background-color: #ffffff;
+	border: 2px solid #d9d9d9;
+	opacity: 0.8;
+	width:500px;
+	border-bottom-left-radius:5px;
+	border-bottom-right-radius:5px;
+}
+@media only screen and (max-device-width: 480px) {
+	div#calc {
+		width: auto;
+	}
+	div#wrap {width:auto;}
+	div#bell {width:auto;}
+}
+.calcHead {
+	border-bottom-left-radius:30px; border-bottom-right-radius:30px;
+	border-bottom: 2px solid #d9d9d9;
+	color: black; text-align: center; font-size:25px;
+	height:40px; line-height: 40px;
+	background-color:#f2f2f2;
+	box-shadow: 0px 2px 2px #e6e6e6;
+	position: sticky; top: 0;
+}
+
+#danak { color: red; font-weight: bold; }
+#pechalba { color: lightblue; font-weight: bold; }
+
+.inputTitle {
+	margin: 30px;
+}
+
+.month {
+	margin-bottom: 20px;
+}
+
+.numberBox { 
+	width:100px;
+	margin-right: 10px;
+}
+
+.button
+{
+	background-color: #00ccff; /* Light Blue */
+	border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    font-size: 12px;
+	font-weight: bold;
+}
+.button:active
+{
+	background-color: #4CAF50; /* Green */
+    border: 1px solid white;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    font-size: 12px;
+	font-weight: bold;
+}
+
+#wrap
+{
+	width:500px;
+}
+
+#credits { display: none; }
+#hide { display:none; }
+#show
+{
+	background-color:#ffffff;
+	border-radius:15px;
+	font-weight:bold;
+	width:500px;
+	border: 2px solid #d9d9d9;
+	display: block;
+}
+
+#butcr
+{
+	background-color: #00ccff;
+	border: 1px solid black;
+	border-radius:5px;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    font-size: 12px;
+	font-weight: bold;
+}

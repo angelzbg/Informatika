@@ -1,0 +1,5 @@
+C:\Users\Nikolay\Documents\Visual Studio 2015\Projects\Lectures\2016-2017\OOP\Day 5\HW_1_Ideas\bin\Debug\HW_1_Ideas.exe.config
+C:\Users\Nikolay\Documents\Visual Studio 2015\Projects\Lectures\2016-2017\OOP\Day 5\HW_1_Ideas\bin\Debug\HW_1_Ideas.exe
+C:\Users\Nikolay\Documents\Visual Studio 2015\Projects\Lectures\2016-2017\OOP\Day 5\HW_1_Ideas\bin\Debug\HW_1_Ideas.pdb
+C:\Users\Nikolay\Documents\Visual Studio 2015\Projects\Lectures\2016-2017\OOP\Day 5\HW_1_Ideas\obj\Debug\HW_1_Ideas.exe
+C:\Users\Nikolay\Documents\Visual Studio 2015\Projects\Lectures\2016-2017\OOP\Day 5\HW_1_Ideas\obj\Debug\HW_1_Ideas.pdb

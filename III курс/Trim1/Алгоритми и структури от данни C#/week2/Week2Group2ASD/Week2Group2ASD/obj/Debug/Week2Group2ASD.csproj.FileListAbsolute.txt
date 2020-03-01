@@ -1,0 +1,7 @@
+C:\Users\nvj\source\repos\Week2Group2ASD\Week2Group2ASD\bin\Debug\Week2Group2ASD.exe.config
+C:\Users\nvj\source\repos\Week2Group2ASD\Week2Group2ASD\bin\Debug\Week2Group2ASD.exe
+C:\Users\nvj\source\repos\Week2Group2ASD\Week2Group2ASD\bin\Debug\Week2Group2ASD.pdb
+C:\Users\nvj\source\repos\Week2Group2ASD\Week2Group2ASD\obj\Debug\Week2Group2ASD.csprojAssemblyReference.cache
+C:\Users\nvj\source\repos\Week2Group2ASD\Week2Group2ASD\obj\Debug\Week2Group2ASD.csproj.CoreCompileInputs.cache
+C:\Users\nvj\source\repos\Week2Group2ASD\Week2Group2ASD\obj\Debug\Week2Group2ASD.exe
+C:\Users\nvj\source\repos\Week2Group2ASD\Week2Group2ASD\obj\Debug\Week2Group2ASD.pdb

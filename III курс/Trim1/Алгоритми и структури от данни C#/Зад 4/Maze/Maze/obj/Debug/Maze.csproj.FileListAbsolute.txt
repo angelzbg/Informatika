@@ -1,0 +1,7 @@
+C:\Users\ftwan\Documents\Visual Studio 2017\Projects\Maze\Maze\bin\Debug\Maze.exe.config
+C:\Users\ftwan\Documents\Visual Studio 2017\Projects\Maze\Maze\bin\Debug\Maze.exe
+C:\Users\ftwan\Documents\Visual Studio 2017\Projects\Maze\Maze\bin\Debug\Maze.pdb
+C:\Users\ftwan\Documents\Visual Studio 2017\Projects\Maze\Maze\obj\Debug\Maze.csprojAssemblyReference.cache
+C:\Users\ftwan\Documents\Visual Studio 2017\Projects\Maze\Maze\obj\Debug\Maze.csproj.CoreCompileInputs.cache
+C:\Users\ftwan\Documents\Visual Studio 2017\Projects\Maze\Maze\obj\Debug\Maze.exe
+C:\Users\ftwan\Documents\Visual Studio 2017\Projects\Maze\Maze\obj\Debug\Maze.pdb

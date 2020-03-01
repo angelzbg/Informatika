@@ -1,0 +1,28 @@
+#include<iostream>
+#include<string>
+using namespace std;
+
+int main()
+{
+	string username = "";
+	string password = "";
+
+	do{
+		cout << "Please enter username: ";
+		cin >> username;
+
+		cout << "Please enter password: ";
+		cin >> password;
+
+		if (username == "gosho" && password == "123321")
+		{
+			cout << "Logged!\n";
+		}
+		else{
+			cout << "Wrong Details. Try again.\n";
+		}
+	} while (username != "gosho" && password != "123321");
+
+	system("PAUSE");
+	return 0;
+}

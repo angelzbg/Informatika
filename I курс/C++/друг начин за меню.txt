@@ -1,0 +1,42 @@
+//друг начин за меню
+#include <iostream>
+using namespace std;
+
+void swapValues(float x, float y)
+{
+	float temp = x;
+	x = y;
+	y = temp;
+}
+float sumValues(float x, float y) { return x + y; }
+
+void main()
+{
+	system("chcp 1251 >> nul");
+
+	float a, b;
+ 	cout << "Въведете стойност за a: ";
+ 	cin >> a;
+ 	cout << "Въведете стойност за b: ";
+ 	cin >> b;
+
+	short choice;
+	do
+	{
+		cout << "1. Смени стойностите" << endl;
+		cout << "2. Събери стойностите" << endl;
+		cout << "3. Изход" << endl;
+		cout << "Избор: "; cin >> choice;
+
+		switch (choice)
+		{
+		case 1: swapValues(a, b); cout << "\tСтойностите бяха сменени." << endl; break;
+		case 2: cout << "\tСума= " << sumValues(a, b) << endl; break;
+		case 3: cout << "\tИзлязохте от менюто." << endl; break;
+		default: cout << "\tГрешна опция!" << endl; break;
+		}
+
+	} while (choice != 3);
+
+	system("pause");
+}

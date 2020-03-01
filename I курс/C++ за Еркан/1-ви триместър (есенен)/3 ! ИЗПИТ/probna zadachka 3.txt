@@ -1,0 +1,40 @@
+/*
+Някъв талибан добива злато в продължение на 15 дни от няква черна река (кат него).
+Да се напише програма, която въвежда количеството (килограми) добито злато за всеки ден,
+да изведе: максималното количеството добито злато и дните, в които е добито; количеството
+добито злато за всички дни общо.
+*/
+#include <iostream>
+using namespace std;
+int main()
+{
+	const short len = 15;
+	float a[len], sum = 0, max = 0;
+	for (short i = 0; i < len; i++)
+	{
+		cout << "Dobito kolichestvo zlato v kilogrami za den " << i + 1 << " : ";
+		cin >> a[i];
+
+		sum += a[i];
+
+		if (a[i]>max)
+		{
+			max = a[i];
+		}
+	}
+
+	cout << "Maximalno kolichestvo dobito zlato: " << max << " kg." << endl;
+	cout << "V dnite: ";
+	for (short i = 0; i < len; i++)
+	{
+		if (a[i] == max)
+		{
+			cout << i + 1 << " ";
+		}
+	}
+
+	cout << "\nObshto kolichestvo dobito zlato: " << sum << " kg" << endl;
+
+	system("pause");
+	return 0;
+}

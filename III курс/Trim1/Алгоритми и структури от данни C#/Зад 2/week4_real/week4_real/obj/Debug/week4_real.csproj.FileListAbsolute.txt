@@ -1,0 +1,7 @@
+C:\Users\ftwan\Documents\Visual Studio 2017\Projects\week4_real\week4_real\bin\Debug\week4_real.exe.config
+C:\Users\ftwan\Documents\Visual Studio 2017\Projects\week4_real\week4_real\bin\Debug\week4_real.exe
+C:\Users\ftwan\Documents\Visual Studio 2017\Projects\week4_real\week4_real\bin\Debug\week4_real.pdb
+C:\Users\ftwan\Documents\Visual Studio 2017\Projects\week4_real\week4_real\obj\Debug\week4_real.csprojAssemblyReference.cache
+C:\Users\ftwan\Documents\Visual Studio 2017\Projects\week4_real\week4_real\obj\Debug\week4_real.csproj.CoreCompileInputs.cache
+C:\Users\ftwan\Documents\Visual Studio 2017\Projects\week4_real\week4_real\obj\Debug\week4_real.exe
+C:\Users\ftwan\Documents\Visual Studio 2017\Projects\week4_real\week4_real\obj\Debug\week4_real.pdb

@@ -1,0 +1,74 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+const int N = 3;
+int counter = 0;
+
+struct SApartamenti 
+{
+	string Name;
+	int Area;
+	int Rooms;
+};
+
+struct SBuilding
+{
+	string Address;
+	int Floors;
+	int Area;
+	SApartamenti Apartments[N];
+}building;
+
+
+int Menu()
+{
+	cout << "1. New apartment" << "\n2. Show apartments" << "\n3. Exit" << "\nChoose option: ";
+	int izbor; cin >> izbor;
+	return izbor;
+}
+void CreateApartment()
+{
+	if (counter >= N) cout << "FULL!!!!!!!!!!!!!!!!!!!!!!!!!!" << endl;
+	else
+	{
+		cout << "# Enter Name: "; cin >> building.Apartments[counter].Name; //cin.ignore();
+		cout << "# Enter Area: "; cin >> building.Apartments[counter].Area;
+		cout << "# Enter Rooms: "; cin >> building.Apartments[counter].Rooms;
+		counter++;
+	}
+}
+
+void ShowApartments()
+{
+	for (short i = 0; i < counter; i++)
+	{
+		cout << building.Apartments[i].Name << " ";
+	}
+	cout << endl;
+}
+
+int main()
+{
+	building.Address = " Bul. Debilski N12 ";
+	building.Floors = 10;
+	building.Area = 1000;
+
+	bool Proverka = true;
+	while (Proverka)
+	{
+		int Choice = Menu();
+
+		switch (Choice)
+		{
+		case 1: CreateApartment(); break;
+		case 2: ShowApartments(); break;
+		case 3: Proverka = false; break;
+		default: cout << "Invalid option!" << endl; break;
+		}
+	}
+	
+	system("pause");
+	return 0;
+}
+

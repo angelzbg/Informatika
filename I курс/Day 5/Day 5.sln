@@ -1,0 +1,52 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26403.7
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HW_1_Ideas", "HW_1_Ideas\HW_1_Ideas.csproj", "{9C6D2809-4549-4061-B43B-86472AB70BC6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AggregationMemoryUpdate", "AggregationMemoryUpdate\AggregationMemoryUpdate.csproj", "{FE7484A6-6583-4001-A80A-BBB9790FD53D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Inheritance", "Inheritance\Inheritance.csproj", "{FFD94D29-AA40-42EE-8408-B63A74559EF5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Insects", "Insects\Insects.csproj", "{22558CFE-7F3E-4AA8-9DED-5966155881A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntroGraphics", "IntroGraphics\IntroGraphics.csproj", "{58F37876-019C-4A4E-9DC5-F2BDD297D319}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimplePaint", "SimplePaint\SimplePaint.csproj", "{3A9D18AE-3945-4B91-8622-61F5FB4EFE7C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9C6D2809-4549-4061-B43B-86472AB70BC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C6D2809-4549-4061-B43B-86472AB70BC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C6D2809-4549-4061-B43B-86472AB70BC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C6D2809-4549-4061-B43B-86472AB70BC6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE7484A6-6583-4001-A80A-BBB9790FD53D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE7484A6-6583-4001-A80A-BBB9790FD53D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE7484A6-6583-4001-A80A-BBB9790FD53D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE7484A6-6583-4001-A80A-BBB9790FD53D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FFD94D29-AA40-42EE-8408-B63A74559EF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFD94D29-AA40-42EE-8408-B63A74559EF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFD94D29-AA40-42EE-8408-B63A74559EF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFD94D29-AA40-42EE-8408-B63A74559EF5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22558CFE-7F3E-4AA8-9DED-5966155881A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22558CFE-7F3E-4AA8-9DED-5966155881A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22558CFE-7F3E-4AA8-9DED-5966155881A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22558CFE-7F3E-4AA8-9DED-5966155881A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58F37876-019C-4A4E-9DC5-F2BDD297D319}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58F37876-019C-4A4E-9DC5-F2BDD297D319}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58F37876-019C-4A4E-9DC5-F2BDD297D319}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58F37876-019C-4A4E-9DC5-F2BDD297D319}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A9D18AE-3945-4B91-8622-61F5FB4EFE7C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A9D18AE-3945-4B91-8622-61F5FB4EFE7C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A9D18AE-3945-4B91-8622-61F5FB4EFE7C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A9D18AE-3945-4B91-8622-61F5FB4EFE7C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

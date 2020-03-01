@@ -1,0 +1,110 @@
+/*Изведете имената на клиентите и общата стойност на 
+поръчките, които са правили, нека в резултата участват 
+само клиенти с поръчки на обща стойност > 100000*/ 
+SELECT FNAME, LNAME, SUM(UNIT_PRICE*QUANTITY) AS TOTAL 
+FROM CUSTOMERS C JOIN ORDERS O 
+ON C.CUSTOMER_ID = O.CUSTOMER_ID 
+JOIN ORDER_ITEMS OI 
+ON O.ORDER_ID = OI.ORDER_ID 
+GROUP BY C.CUSTOMER_ID, FNAME, LNAME 
+HAVING SUM(UNIT_PRICE*QUANTITY) > 100000 
+/*Изведе имената на служителите и имената на техните 
+преки началници*/ 
+
+SELECT E.FNAME+' '+E.LNAME AS EMPLOYEE, 
+M.FNAME+' '+M.LNAME AS MANAGER 
+FROM EMPLOYEES E JOIN EMPLOYEES M 
+ON E.MANAGER_ID = M.EMPLOYEE_ID 
+/*Изведе имената на служителите и имената на техните 
+преки началници, нека в резултата участват и служителите, 
+които нямат преки началници*/ 
+SELECT E.FNAME+' '+E.LNAME AS EMPLOYEE, 
+M.FNAME+' '+M.LNAME AS MANAGER 
+FROM EMPLOYEES E LEFT JOIN EMPLOYEES M 
+ON E.MANAGER_ID = M.EMPLOYEE_ID 
+/*Изведете името и заплатата на служителя, който 
+получава най-висока заплата във фирмата*/ 
+SELECT FNAME, LNAME, SALARY 
+FROM EMPLOYEES 
+WHERE SALARY = (SELECT MAX(SALARY) 
+                FROM EMPLOYEES) 
+
+/*Изведете имената на клиентите, които се намират 
+в държави от регион 3*/ 
+
+SELECT FNAME, LNAME, COUNTRY_ID 
+FROM CUSTOMERS 
+WHERE COUNTRY_ID = ANY (SELECT COUNTRY_ID 
+                    FROM COUNTRIES 
+                    WHERE REGION_ID = 3) 
+
+SELECT FNAME, LNAME, COUNTRY_ID 
+FROM CUSTOMERS 
+WHERE COUNTRY_ID IN (SELECT COUNTRY_ID 
+                    FROM COUNTRIES 
+                    WHERE REGION_ID = 3) 
+
+/*Изведете имената на държавите, в които има клиенти 
+и отдели на фирмата*/ 
+SELECT CO.NAME 
+FROM CUSTOMERS C JOIN COUNTRIES CO 
+ON C.COUNTRY_ID = CO.COUNTRY_ID 
+JOIN DEPARTMENTS D 
+ON D.COUNTRY_ID = CO.COUNTRY_ID 
+GROUP BY CO.NAME 
+
+SELECT DISTINCT CO.NAME 
+FROM CUSTOMERS C JOIN COUNTRIES CO 
+ON C.COUNTRY_ID = CO.COUNTRY_ID 
+JOIN DEPARTMENTS D 
+ON D.COUNTRY_ID = CO.COUNTRY_ID 
+
+SELECT NAME 
+FROM COUNTRIES 
+WHERE COUNTRY_ID IN (SELECT COUNTRY_ID 
+                    FROM CUSTOMERS) 
+AND COUNTRY_ID IN (SELECT COUNTRY_ID 
+                    FROM DEPARTMENTS) 
+SELECT NAME 
+FROM CUSTOMERS C JOIN COUNTRIES CO 
+ON C.COUNTRY_ID = CO.COUNTRY_ID 
+INTERSECT 
+SELECT CO.NAME 
+FROM DEPARTMENTS D JOIN COUNTRIES CO 
+ON D.COUNTRY_ID = CO.COUNTRY_ID 
+/*Изведете имената на държавите, в които има клиенти, но 
+няма отдели на фирмата*/ 
+SELECT NAME 
+FROM COUNTRIES 
+WHERE COUNTRY_ID IN (SELECT COUNTRY_ID 
+                    FROM CUSTOMERS) 
+AND COUNTRY_ID NOT IN (SELECT COUNTRY_ID 
+                    FROM DEPARTMENTS) 
+
+SELECT NAME 
+FROM CUSTOMERS C JOIN COUNTRIES CO 
+ON C.COUNTRY_ID = CO.COUNTRY_ID 
+EXCEPT 
+SELECT CO.NAME 
+FROM DEPARTMENTS D JOIN COUNTRIES CO 
+ON D.COUNTRY_ID = CO.COUNTRY_ID 
+/*Изведете имената на служителите, които работят в отдел 
+80 и получават заплата > от средната за 80 отдел*/ 
+SELECT FNAME, LNAME, SALARY 
+FROM EMPLOYEES 
+WHERE DEPARTMENT_ID = 80 
+AND SALARY > (SELECT AVG(SALARY) 
+              FROM EMPLOYEES 
+              WHERE DEPARTMENT_ID = 80) 
+
+/*Изведете наименованията на длъжностите, в които няма 
+назначени служители*/ 
+SELECT JOB_TITLE 
+FROM JOBS J LEFT JOIN EMPLOYEES E 
+ON J.JOB_ID = E.JOB_ID 
+WHERE EMPLOYEE_ID IS NULL 
+
+SELECT JOB_TITLE 
+FROM JOBS J 
+WHERE JOB_ID NOT IN (SELECT JOB_ID 
+                     FROM EMPLOYEES) 

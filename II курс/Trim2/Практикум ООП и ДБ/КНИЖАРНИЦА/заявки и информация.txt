@@ -1,0 +1,67 @@
+--- Автори >= 1000 ---
+Автор с author_number 1 има name ИЗТРИТ
+Авторите започват с номера от 1000 и нагоре, благодарение на следните заявки:
+INSERT INTO AUTHORS VALUES(NULL, 999, 'име');
+DELETE FROM AUTHORS WHERE AUTHOR_NUMBER=999;
+които са направени веднага след създаването на таблицата AUTHORS.
+
+
+--- Книги >= 3000 ---
+Книга с book_number 1 има title ИЗТРИТ
+Книгите започват с номера от 3000 и нагоре, благодарение на следните заявки:
+INSERT INTO BOOKS VALUES(NULL, 2999, 'заглавие', 1, '1234567890001', 0, 0);
+DELETE FROM BOOKS WHERE BOOK_NUMBER=2999;
+които са направени веднага след създаването на таблицата BOOKS.
+
+
+--- Клиенти >= 5000 ---
+Клиент с client_number 1 има names ИЗТРИТ и address ИЗТРИТ
+Клиентите започват с номера от 5000 и нагоре, благодарение на следните заявки:
+INSERT INTO CLIENTS VALUES(NULL, 4999, 'име', 'адрес');
+DELETE FROM CLIENTS WHERE CLIENT_NUMBER=4999;
+които са направени веднага след създаването на таблицата CLIENTS.
+
+
+--- Поръчки >= 2000 ---
+Поръчка с изтрити клиенти и/или има client_number 1 и/или book_number 1
+Поръчките започват с номера от 2000 и нагоре, благодарение на следните заявки:
+INSERT INTO ORDERS VALUES(NULL, 1999, 1, 1, 0, '2018-01-30', DEFAULT);
+DELETE FROM ORDERS WHERE ORDER_NUMBER=1999;
+които са направени веднага след създаването на таблицата ORDERS.
+При заявката за нова поръчка, последната колона DONE може да се зададе като TRUE (изпълнена),
+FALSE/DEFAULT (неизпълнена), а като се извикват може да стане WHERE DONE=0 за неизпълнени
+и WHERE DONE>0 за изпълнени (0 е false, всичко>0 е true)
+
+
+
+Заявки:
+
+select * from authors;
+
+select * from books;
+
+select * from clients;
+
+select * from orders;
+
+SELECT * FROM ORDERS;
+SELECT ORDER_NUMBER, NAMES, TITLE, QUANTITY, ORDER_DATE, SUM(QUANTITY*PRICE), ADDRESS, DONE
+FROM ORDERS O JOIN CLIENTS C ON O.CLIENT_NUMBER = C.CLIENT_NUMBER
+JOIN
+BOOKS B ON O.BOOK_NUMBER = B.BOOK_NUMBER WHERE O.DONE=0 GROUP BY ORDER_NUMBER;
+
+select book_number, title, name, isbn, count, price from books b join authors a on b.author_number = a.author_number where book_number>2999;
+
+SELECT * FROM ORDERS;
+SELECT ORDER_NUMBER, NAMES, TITLE, ISBN, QUANTITY, ORDER_DATE, SUM(QUANTITY*PRICE), ADDRESS, DONE
+FROM ORDERS O JOIN CLIENTS C ON O.CLIENT_NUMBER = C.CLIENT_NUMBER
+JOIN
+BOOKS B ON O.BOOK_NUMBER = B.BOOK_NUMBER WHERE O.DONE=0 GROUP BY ORDER_NUMBER;
+
+
+
+
+
+
+select isbn from books WHERE CHARINDEX('97', isbn) > 0;
+select isbn from books WHERE isbn like '97';

@@ -1,0 +1,208 @@
+NOTES on Java programs for Modern Operating Systems 2nd ed.
+
+The programs are MOS 2/e are written in C because all real operating systems
+are written in C or C++.  Nobody would seriously consider writing an
+operating system in Java.  Nevertheless, as a service to students who may
+be more familiar with Java than with C, the code fragments in the book have
+been translated to Java by Charles Hoot.  This translation is often difficult
+for a variety of reasons, e.g. the UNIX system calls are not available from
+Java easily.  Nevertheless, the translations may be of some use.  Some notes
+on the files are given below.  The use of 'I' below refers to Charles Hoot.
+
+Figure 1-19
+   This code has no chance of working as Java does not support a Unix style
+fork.  Assuming that it did, this would be the way to do it.  This depends
+on the class UnixAPI being implemented correctly.
+   
+Figure 1-19alt
+   The Java way of doing this is provided in this code fragement. Java does
+allow you to execute a command in a separate process as shown.
+   
+Figures 2-11a, 2-11b
+   Depends on implementation of Buffer and Page. Would probably make the code
+event driven in a real Java implementation.
+   
+Figure 2-23
+   Java does not implement sleep without a time, nor does it implement wakeup
+as such. They would need to be defined within the class.
+   
+Figure 2-23alt
+   This uses the operations that the original Java defined on Threads.  These
+operations have since been deprecated as being inherently unsafe.  
+   
+Figure 2-23alt2
+   Something close to the original code can be obtained by using wait()
+and notify() for Object.  Wait causes the current thread to wait on the
+object. In this case the object the thread will wait on will be itself.  The
+only problem with this is that notify() does not let us choose the thread to
+wakeup.  It will be any thread waiting on the object we notify.  Therefore, we
+depend on there being only one thread waiting on itself.
+
+Figure 2-24
+   This code is extracted from a working java program. I have removed code to
+make it conform more to the original code. The original program is contained
+in the files Item.java, Semaphore.java, and ProducerConsumer.java
+
+
+
+Figure 2-26
+   Java implements synchronization via monitors.  Since each method in the
+class is synchronized only one thread will be allowed in at a time.  If the
+producer or consumer has to wait they will need to use wait() and then
+notify() to start up a waiting thread.
+   
+Figure 2-27
+   This code is extracted from working code.
+   
+   The wait() is done not done on a condition variable but on the current
+(synchronized) object. 
+   
+   I have included a version with multiple producers and consumers.  There is
+a potential problem that can arise where there are multiple threads waiting.
+Some waiting on full and some on empty.  If a notify() is done, there is no
+control over which thread will be signaled.  If the wrong type of thread is
+signaled, the notification will be lost and eventually we can end up with all
+threads blocked.
+   
+   To solve this problem we can do one of two things.
+      1) Timed wait.  Wait for notification or 5 seconds.  In this case, we
+guarantee threads do not remain blocked forever
+      2) notifyAll().  All threads are notified and if any one of them can go
+it will.
+   
+   The original code consists of Item.java, ProducerConsumerMonitor.java
+(using approach 1) and ProducerConsumer2.java (single producer/consumer) 
+or ProducerConsumer3.java (multiple producer/consumers)
+
+Figure 2-27alt
+   More of a direct translation of the existing code, but would need wait()
+and signal() to be implemented within the class.  Would take some effort to
+implement correctly.  I much prefer the previous version.
+   
+Figure 2-29
+   This depends on there being a Message class that appropriately implements
+the send and receive methods.
+   
+Figure 2-33
+   This code is extracted from a working java program. I have removed code to
+make it conform more to the original code. The original program is contained
+in the files Philosopher.java and Semaphore.java
+
+   
+Figure 2-34
+   This code is extracted from a working java program. I have removed code to
+make it conform more to the original code. The original program is contained
+in the files Semaphore.java and ReaderWriter.java
+
+Figure 2-36
+   This code is extracted from a working java program. I have removed code to
+make it conform more to the original code.  The original program is contained
+in the files Semaphore.java and SleepingBarber.java
+
+Figure 5-8a   
+   Java is not really designed to implement an operating system. I have
+assumed that the PrinterDevice class will be able to enable interrupts. If
+this is not acceptable, we could introduce a fictitious class Hardware and
+replace that line with HardWare.enable_interrupts();
+
+
+Figures 5-7, 5-8a, 5-8b, 5-9a, 5-9b
+   Buffer and PrinterDevice would need to be implemented.  In particular,
+PrinterDevice would need to have access to the hardware which violates the
+spirit of Java.
+
+Figure 5-41
+   Java was intended to be platform independent so this code goes against the
+spirit of Java.
+   
+   Java does not have a WindowsAPI but if it did, it might be implemented
+something like what I have done.  It is assumed that the WindowsApplication
+will override the method WndProc and that will always be the callback method.
+   
+   I have assumed that DefWindowProc, TranslateMessage and DispatchMessage 
+will be overriden in the WindowsApplication class if needed. 
+   
+Figure 5-46
+   This code would depend on an XWindowsAPI package being created.  As Java
+is intended to be platform independent, this violates the spririt of Java.
+   
+Figure 6-5
+   This code is a working Java program.  The original file is FileCopy.java 
+      
+Figure 9-13
+   Since no UnixAPI exists, I have tried to closely follow the given code.
+If I were creating it there would be some things that I would do including
+making UnixDirectoryEntry and UnixStat full blown classes.  This would mean
+that a method like isExecutable() would be added to UnixDirectoryEntry. 
+   
+   Under this change the code
+      UnixAPI.access(dp.name, UnixAPI.X_OK) == 0
+would instead read
+      dp.isExecutable()
+      
+   Java was intended to be platform independent so this code goes against the
+spirit of Java
+
+Figure 9-13alt
+   This is Java code that accomplishes the task.  Differences with the
+original code:
+      1) It doesn't check for symbolic links.  
+      2) It decides whether to infect a file based on its name.
+The original file is ExecutableFiles.java
+      
+Figure 10-4 & 10-4alt
+   The comments on these two code fragments are the same as for 1-19/1-19alt.
+
+Figure 10-7 & 10-7alt
+   The comments on these two code fragments are the same as for 1-19/1-19alt.
+
+Figure 11-32
+   If there was a Windows 2000 API, it might work something like this.  Java
+was intended to be platform independent so this code goes against the spirit
+of Java.
+      
+Figure 12-1b
+   This is typical Java code for dealing with events.  ActionCommands are 
+Strings which can not be the object of a switch, so a if-elseif structure
+is used.
+
+Figure 12-4
+   SystemProcess would have to be implemented.  The java class Process does
+not support process ids.
+   
+Figure 12-5a
+   Java is intended to be platform independent.  If one really wanted to do
+this you would have to run the C/C++ preprocessor on the Java code.  This
+code goes against the spirit of Java. 
+   
+Figure 12-5b
+   Java is intended to be platform independent.  It does not support register
+variables and the size of the data types also does not depend on the machine.
+I have completely left this code out as there is nothing comparable in Java.
+   
+Figure 12-5alt
+   One possible use of conditional code would be for debugging print
+statements.  Again one would have to run the C/C++ preprocessor on the Java
+code.
+
+Figure 12-6a
+   This is pretty standard Java.
+   
+Figure 12-6b
+   For this to work you would need to run the C/C++ preprocessor on the .java
+file before you used the java compiler.  This is definitely not standard
+practice.
+   
+The macro as given in the book is unsafe when using or used in expressions.
+   For this macro to be safe it should be replaced by
+   #define bit_count(b) (((b)&1) + (((b)>>1)&1) + (((b)>>2)&1) + (((b)>>3)&1) 
+      + (((b)>>4)&1) + (((b)>>5)&1) + (((b)>>6)&1) + (((b)>>7)&1)) 
+I did add extra parentheses around the whole expression in the Java version, 
+but did not replace b by (b).
+   
+Figure 12-6c
+   For this to work you would need to run the C/C++ preprocessor on the .java
+file before you used the java compiler.  In addition both lines of code would
+need to be inside the class declaration. This is definitely not standard
+practice. There is a mistake in the original code provided to me.  There is a
+bit_count that should be bits.

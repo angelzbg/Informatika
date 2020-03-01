@@ -1,0 +1,159 @@
+// моя непълна
+
+#include <iostream>
+using namespace std;
+#include <cstring>
+
+struct SLiniq
+{
+	char StartDest[31];
+	char FinalDest[31];
+	double price;
+	double distance;
+	int time;
+	int averagetime;
+}Linii[6];
+
+double MaxSrednaSkorost(SLiniq *liniq, short len)
+{
+	double maxSkorost = liniq[0].averagetime;
+	for (short i = 0; i < len; i++)
+	{
+		if (maxSkorost < liniq[i].averagetime) maxSkorost = liniq[i].averagetime;
+	}
+	return maxSkorost;
+}
+
+void LiniiSMaxAvS(SLiniq *liniq, short len)
+{
+	for (short i = 0; i < len; i++)
+	{
+		if (liniq[i].averagetime == MaxSrednaSkorost(liniq, len)) cout << liniq[i].StartDest << " - " << liniq[i].FinalDest << endl;
+	}
+}
+
+int main()
+{
+	system("chcp 1251");
+	for (short i = 0; i < 6; i++)
+	{
+		cout << "Въвеждане на данни за линия " << i + 1 << endl;
+
+		short o1 = 0;
+		do
+		{
+			short j = 0;
+			do
+			{
+				cout << "Начално селище: "; cin.getline(Linii[i].StartDest, 31);
+				cout << "Крайно селище: "; cin.getline(Linii[i].FinalDest, 31);
+
+				if (strcmp(Linii[i].StartDest, Linii[i].FinalDest) == 0)
+				{
+					cout << "\tСъвпадение на начално и крайно селище!" << endl;
+				}
+				else j++;
+			} while (j == 0);
+
+			do
+			{
+				cout << "Разстояние (в км): ";
+				cin >> Linii[i].distance;
+				if (Linii[i].distance <= 0)
+				{
+					cout << "\tТрябва да е положително число!" << endl;
+				}
+			} while (Linii[i].distance <= 0);
+
+
+			for (short k = 0; k < 6; k++)
+			{
+				if (k != i)
+				{
+					if (strcmp(Linii[i].StartDest, Linii[k].StartDest) == 0 && strcmp(Linii[i].FinalDest, Linii[k].FinalDest) == 0 && Linii[i].distance == Linii[k].distance)
+					{
+						cout << "Има съвпадение на начална+крайна точкна+разстояние за две различни линии!" << endl;
+					}
+					else o1++;
+				}
+			}
+		} while (o1 == 0);
+
+		short H, M;
+		do
+		{
+			cout << "- Време за пътуване (часове): "; cin >> H;
+			cout << "- Време за пътуване (минути): "; cin >> M;
+			
+			if (H < 0 || M < 0 || M > 60)
+			{
+				cout << "\tЧасовете рябва да са >=0, а минутите >=0 и <=60 !" << endl;
+			}
+			else Linii[i].time = H * 60 + M;
+		} while (H < 0 || M < 0 || M > 60);
+
+		do
+		{
+			cout << "Цена на билет (в лева): ";
+			cin >> Linii[i].price;
+			if (Linii[i].price <= 0)
+			{
+				cout << "\tТрябва да е положително число!" << endl;
+			}
+		} while (Linii[i].price <= 0);
+
+		Linii[i].averagetime = Linii[i].distance / (Linii[i].time / 60);
+		cin.ignore(1);
+	}
+
+	cout << "----------- Пълни данни за 6 автобусни линии -----------" << endl;
+	for (short i = 0; i < 6; i++)
+	{
+		cout << i + 1 << "-ва линия:" << endl;
+		cout << "\tАвтолиния от " << Linii[i].StartDest << " до " << Linii[i].FinalDest << ": разстояние " << Linii[i].distance << "км;" << endl;
+		if (Linii[i].time>60) cout << "\tЦена:" << Linii[i].price << "лв; Време: " << Linii[i].time / 60 << " часа и " << Linii[i].time % 60 << " минути; Средна скорост : " << Linii[i].averagetime << "км / час" << endl;
+		else cout << "\tЦена:" << Linii[i].price << "лв; Време: " << Linii[i].time % 60 << " минути; Средна скорост : " << Linii[i].averagetime << "км / час" << endl;
+	}
+	cout << "--------------------------------------------------------" << endl;
+
+	cout << "--- Справка: Селища, които са начало, и край линия:" << endl;
+	for (short i = 0; i < 6; i++)
+	{
+		for (short j = 0; j < 6; j++)
+		{
+			{
+				if (strcmp(Linii[i].StartDest, Linii[j].StartDest) == 0)
+				{
+					for (short g = 0; g < 6; g++)
+					{
+						if (strcmp(Linii[i].StartDest, Linii[g].FinalDest) == 0)
+						{
+							cout << Linii[i].StartDest << endl;
+						}
+					}
+				}
+			}
+		}
+	}
+	cout << "--- Край на справката.\n\n";
+
+	cout << "--- Справка за линии със срадна скорост: " << MaxSrednaSkorost(Linii, 6) << "км/час" << endl;
+	LiniiSMaxAvS(Linii, 6);
+	cout << "--- Край на справката.\n\n";
+
+	char podniz[20];
+	cout << "Въведете подниз на название на селище: "; cin.getline(podniz, 20);
+	cout << "--- Справка за линии между селища, съдържащи \"" << podniz << "\":" << endl;
+	for (short i = 0; i < 6; i++)
+	{
+		if (strstr(Linii[i].StartDest, podniz) || strstr(Linii[i].FinalDest, podniz))
+		{
+			cout << Linii[i].StartDest << " - " << Linii[i].FinalDest << " (разстояние " << Linii[i].distance << "км)" << endl;
+		}
+	}
+	cout << "--- Край на справката.\n\n";
+
+
+	system("pause");
+	return 0;
+}
